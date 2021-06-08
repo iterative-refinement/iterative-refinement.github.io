@@ -1,0 +1,156 @@
+<!--
+  Copyright 2018 The Distill Template Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!doctype html>
+
+<head>
+    <title>Exemplar VAE</title>
+    <script src="template.v2.js"></script>
+    <meta property="og:title" content="SR3: Image Super-Resolution via Iterative Refinement">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="utf8">
+</head>
+
+<body>
+  <d-front-matter>
+    <script id='distill-front-matter' type="text/json">{
+    "title": "Image Super-Resolution via Iterative Refinement",
+    "description": "Linking generative models, nearest neighbor retreival, and data augmentation",
+    "published": "April 15, 2021",
+    "authors": [
+      {
+        "author":"Chitwan Saharia",
+        "authorURL":"https://chitwansaharia.github.io/",
+        "affiliations": [{"name": "Google Brain", "url": "https://g.co/brain"}]
+      },
+      {
+        "author":"David Fleet",
+        "authorURL":"http://www.cs.toronto.edu/~fleet/",
+        "affiliations": [{"name": "Google Brain", "url": "https://g.co/brain"}]
+      },
+      {
+        "author":"Mohammad Norouzi",
+        "authorURL":"http://norouzi.github.io",
+        "affiliations": [{"name": "Google Brain", "url": "https://g.co/brain"}]
+      }
+    ],
+    "doi": "https://arxiv.org/pdf/2104.07636",
+    "katex": {
+      "delimiters": [
+        {"left": "$$", "right": "$$", "display": false}
+      ]
+    }
+  }</script>
+  </d-front-matter>
+  <d-title>
+    <p>
+      Difusion probabilistic models for super-resolution and cascaded image generation
+    </p>
+  </d-title>
+  <d-byline></d-byline>
+  <d-article>
+    <d-contents>
+      <img src="exemplar-vae-generation.svg" style="float:left; width: 90%; display: block;"/>	
+    </d-contents>
+    <h2>Abstract</h2>
+    <p>
+      We present SR3, an approach to image Super-Resolution via
+      Repeated Refinement. SR3 adapts denoising diffusion
+      probabilistic models to conditional image generation and
+      performs super-resolution through a stochastic denoising
+      process. Inference starts with pure Gaussian noise and
+      iteratively refines the noisy output using a U-Net model trained
+      on denoising at various noise levels. SR3 exhibits strong
+      performance on super-resolution tasks at different magnification
+      factors, on faces and natural images. We conduct human
+      evaluation on a standard 8X face super-resolution task on
+      CelebA-HQ, comparing with SOTA GAN methods. SR3 achieves a fool
+      rate close to 50%, suggesting photo-realistic outputs, while
+      GANs do not exceed a fool rate of 34%. We further show the
+      effectiveness of SR3 in cascaded image generation, where
+      generative models are chained with super-resolution models,
+      yielding a competitive FID score of 11.3 on ImageNet.
+<br>
+    <d-contents>
+      <img src="augmentation.gif" style="width: 70%; display: block; margin-left: auto;  margin-right: auto; max-width: 380px"/>
+    </d-contents>
+    </p>
+    <h2>Samples</h2>
+        <!-- <figure style="grid-column: kicker "> -->
+        <!--     <img src="water_lilies.jpg" style="width: 100%; max-width: 150px; margin-left: auto;  margin-right: auto; display: block;"/> -->
+        <!--       <figcaption> First Google image search result for <a href="https://www.google.ca/search?tbm=isch&q=a+woman+is+staring+at+monet%27s+water+lilies&oq=a+woman+staring+at+Monet\%27s+Water+Lilies">''A woman is staring at Monet's Water Lilies''</a>. </figcaption> -->
+        <!-- </figure> -->
+    <p>
+      <h2>Experimental Results</h2>
+      <h3>
+          Density Estimation
+      </h3>
+      <p>
+      TODO
+      </p>
+     <figure  style="grid-column: text">
+        <img src="density_estimation.png" style="width: 100%; margin-top: 1rem;"/>
+          <figcaption> Density estimation on dynamic MNIST, Fashion MNIST, and Omniglot for different methods and architectures. Log likelihoodlower bounds (in nats) averaged across 5 training runs are estimated using IWAE with 5000 samples.  </figcaption>
+    </figure>
+      <h3>
+        Representation Learning
+      </h3>
+      <p>
+	TODO
+	
+          <div  style="grid-column: text">
+                <img src="tsne-standard.png" style="width: 45%; margin-top: 1rem; margin-right: 8%;"/>
+              <img src="tsne-exemplar.png" style="width: 45%; margin-top: 1rem;"/>
+              <figcaption> t-SNE visualization of learned latent representations for MNIST test points, colored by labels. </figcaption>
+          </div>
+            Test points are colored by their digit label
+            (No labels were used during training). We also use k-nearest neighbor (kNN) classification
+            performance as a proxy for the representation quality.
+            Exemplar VAE consistently outperforms other approaches.
+            <figure style="grid-column: text">
+                <img src="knn_latent.png" style="width: 60%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+            </figure>
+      </p>
+      <h3>
+          Generative Data Augmentation
+      </h3>
+      <p>
+      TODO
+      </p>
+      <figure  style="grid-column: text">
+          <img src="data_augmentation.png" style="width: 65%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+      </figure>
+
+      <h3>
+          Exemplar-conditioned Samples
+      </h3>
+      <figure  style="grid-column: text">
+          <img src="celebA_exemplar_generation.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto;"/>
+          <img src="exemplar_generation.png" style="width: 100%; display: block; margin-left: auto; margin-right: auto;"/>
+      </figure>
+
+
+  </d-article>
+
+  <d-appendix>
+      <d-bibliography src="https://raw.githubusercontent.com/exemplar-vae/exemplar-vae.github.io/master/bibliography.bib">
+      </d-bibliography>
+  </d-appendix>
+
+
+</body>
