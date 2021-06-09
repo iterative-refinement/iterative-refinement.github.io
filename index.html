@@ -16,7 +16,7 @@
 <!doctype html>
 
 <head>
-    <title>Exemplar VAE</title>
+    <title>SR3: Iterative Image Enhancement</title>
     <script src="template.v2.js"></script>
     <meta property="og:title" content="SR3: Image Super-Resolution via Iterative Refinement">
     <meta property="og:type" content="website">
@@ -80,7 +80,7 @@
   <d-byline></d-byline>
   <d-article>
     <d-contents>
-      <img src="exemplar-vae-generation.svg" style="float:left; width: 90%; display: block;"/>	
+      <img src="images/cascade_fig.svg" style="float:left; width: 100%; display: block;"/>	
     </d-contents>
     <h2>Abstract</h2>
     <p>
@@ -100,47 +100,31 @@
       effectiveness of SR3 in cascaded image generation, where
       generative models are chained with super-resolution models,
       yielding a competitive FID score of 11.3 on ImageNet.
-<br>
-    <d-contents>
-      <img src="augmentation.gif" style="width: 70%; display: block; margin-left: auto;  margin-right: auto; max-width: 380px"/>
-    </d-contents>
     </p>
-    <h2>Samples</h2>
+    <h2>Super-Resolution Samples</h2>
+    <figure  style="grid-column: text">
+        <img src="images/super_res_examples.png" style="width: 100%; margin-top: 1rem;"/>
+          <figcaption> Super Resolution results: (Above) 64x64 -> 512x512 face super-resolution, (Below) 64x64 -> 256x256 natural image super-resolution.  </figcaption>
+    </figure>
         <!-- <figure style="grid-column: kicker "> -->
         <!--     <img src="water_lilies.jpg" style="width: 100%; max-width: 150px; margin-left: auto;  margin-right: auto; display: block;"/> -->
         <!--       <figcaption> First Google image search result for <a href="https://www.google.ca/search?tbm=isch&q=a+woman+is+staring+at+monet%27s+water+lilies&oq=a+woman+staring+at+Monet\%27s+Water+Lilies">''A woman is staring at Monet's Water Lilies''</a>. </figcaption> -->
         <!-- </figure> -->
     <p>
-      <h2>Experimental Results</h2>
-      <h3>
-          Density Estimation
-      </h3>
+      <h2>Unconditional Samples</h2>
       <p>
-      TODO
+        We generate unconditional 1024x1024 unconditional face images using a cascade of an unconditional diffusion model at 64x64 resolution followed by two 4x super-resolution models. We also generate 256x256 class conditional natural images by using a cascade of a class conditional diffusion model at 64x64 resolution followed by a 4x super-resolution model. Cascaded generation allows training different models in parallel and inference is also efficient as lower resolution models can use more iterations, while higher resolution models use few iterations.
       </p>
-     <figure  style="grid-column: text">
-        <img src="density_estimation.png" style="width: 100%; margin-top: 1rem;"/>
-          <figcaption> Density estimation on dynamic MNIST, Fashion MNIST, and Omniglot for different methods and architectures. Log likelihoodlower bounds (in nats) averaged across 5 training runs are estimated using IWAE with 5000 samples.  </figcaption>
-    </figure>
-      <h3>
-        Representation Learning
-      </h3>
-      <p>
-	TODO
-	
-          <div  style="grid-column: text">
-                <img src="tsne-standard.png" style="width: 45%; margin-top: 1rem; margin-right: 8%;"/>
-              <img src="tsne-exemplar.png" style="width: 45%; margin-top: 1rem;"/>
-              <figcaption> t-SNE visualization of learned latent representations for MNIST test points, colored by labels. </figcaption>
-          </div>
-            Test points are colored by their digit label
-            (No labels were used during training). We also use k-nearest neighbor (kNN) classification
-            performance as a proxy for the representation quality.
-            Exemplar VAE consistently outperforms other approaches.
-            <figure style="grid-column: text">
-                <img src="knn_latent.png" style="width: 60%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-            </figure>
-      </p>
+      <figure  style="grid-column: text">
+          <img src="images/unconditional_faces.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption> Selected example generations of unconditional 1024x1024 faces.  </figcaption>
+      </figure>
+
+      <figure  style="grid-column: text">
+          <img src="images/class_cond_images.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption> Selected example generations of class conditional 256x256 natural images. Each row contains examples from a particular class.  </figcaption>
+      </figure>
+
       <h3>
           Generative Data Augmentation
       </h3>
