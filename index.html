@@ -15,6 +15,9 @@
 -->
 <!doctype html>
 
+<style>
+
+</style>
 <head>
     <title>SR3: Iterative Image Enhancement</title>
     <script src="template.v2.js"></script>
@@ -124,14 +127,20 @@
       <p>
         We generate unconditional 1024x1024 unconditional face images using a cascade of an unconditional diffusion model at 64x64 resolution followed by two 4x super-resolution models. We also generate 256x256 class conditional natural images by using a cascade of a class conditional diffusion model at 64x64 resolution followed by a 4x super-resolution model. Cascaded generation allows training different models in parallel and inference is also efficient as lower resolution models can use more iterations, while higher resolution models use fewer iterations.
       </p>
+
+      <figure  style="grid-column: text">
+          <img src="images/cascade_fig.svg" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption style="display:flex; justify-content: center"> Cascaded generation of unconditional 1024x1024 faces.  </figcaption>
+      </figure>
+
       <figure  style="grid-column: text">
           <img src="images/unconditional_faces.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption> Selected example generations of unconditional 1024x1024 faces.  </figcaption>
+          <figcaption style="display:flex; justify-content: center"> Selected example generations of unconditional 1024x1024 faces.  </figcaption>
       </figure>
 
       <figure  style="grid-column: text">
           <img src="images/class_cond_images.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption> Selected example generations of class conditional 256x256 natural images. Each row contains examples from a particular class.  </figcaption>
+          <figcaption style="display:flex; justify-content: center"> Selected example generations of class conditional 256x256 natural images. Each row contains examples from a particular class.  </figcaption>
       </figure>
 
       <h2>Paper and Citation</h2>
