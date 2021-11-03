@@ -1,1 +1,339 @@
+<!--
+  Copyright 2018 The Distill Template Authors
 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!doctype html>
+
+<style>
+.base-grid,
+.n-header,
+.n-byline,
+.n-title,
+.n-article,
+.n-footer {
+    display: grid;
+    justify-items: stretch;
+    grid-template-columns: [screen-start] 8px [page-start kicker-start text-start gutter-start middle-start] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 8px [screen-end];
+    grid-column-gap: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 8px;
+}
+
+@media(min-width: 768px) {
+    .base-grid,
+    .n-header,
+    .n-byline,
+    .n-title,
+    .n-article,
+    .n-footer {
+        display: grid;
+        justify-items: stretch;
+        grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 45px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
+        grid-column-gap: 16px;
+    }
+
+    .grid {
+        grid-column-gap: 16px;
+    }
+}
+
+@media(min-width: 1000px) {
+    .base-grid,
+    .n-header,
+    .n-byline,
+    .n-title,
+    .n-article,
+    .n-footer {
+        display: grid;
+        justify-items: stretch;
+        grid-template-columns: [screen-start] 1fr [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 50px 50px 50px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
+        grid-column-gap: 16px;
+    }
+
+    .grid {
+        grid-column-gap: 16px;
+    }
+}
+
+@media (min-width: 1180px) {
+    .base-grid,
+    .n-header,
+    .n-byline,
+    .n-title,
+    .n-article,
+    .n-footer {
+        display: grid;
+        justify-items: stretch;
+        grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+        grid-column-gap: 32px;
+    }
+    .grid {
+        grid-column-gap: 32px;
+    }
+
+}
+
+.base-grid {
+  grid-column: screen;
+}
+
+/* default grid column assignments */
+.n-title > *  {
+  grid-column: text;
+}
+
+.n-article > *  {
+  grid-column: text;
+}
+
+.n-title {
+    padding: 4rem 0 0.5rem;
+}
+
+.l-page {
+    grid-column: page;
+}
+
+.l-article {
+    grid-column: text;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+
+.pixelated {
+    image-rendering: pixelated;
+}
+
+strong {
+    font-weight: 600;
+}
+
+/*------------------------------------------------------------------*/
+/* title */
+.n-title h1 {
+    font-family: "Barlow",system-ui,Arial,sans-serif;
+    color:#082333;
+    grid-column: text;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .n-title h1 {
+        font-size: 50px;
+    }
+}
+
+
+.n-byline {
+  contain: style;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  line-height: 1.8em;
+  padding: 1.5rem 0;
+  min-height: 1.8em;
+}
+
+.n-byline .byline {
+  grid-column: text;
+}
+
+.byline {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid {
+    display: grid;
+    grid-column-gap: 8px;
+}
+
+@media (min-width: 768px) {
+.grid {
+    grid-column-gap: 16px;
+}
+}
+
+.n-byline p {
+  margin: 0;
+}
+
+.n-byline h3 {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    text-transform: uppercase;
+}
+.n-byline .authors-affiliations {
+  grid-column-end: span 2;
+  grid-template-columns: 1fr 1fr;
+}
+
+ul.authors {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+ul.authors li {
+    padding: 0 0.5rem;
+    display: inline-block;
+}
+
+ul.authors sup {
+    color: rgb(126,126,126);
+}
+
+ul.authors.affiliations  {
+    margin-top: 0.5rem;
+}
+
+ul.authors.affiliations li {
+    color: rgb(126,126,126);
+}
+
+
+</style>
+<head>
+    <title>SR3: Iterative Image Enhancement</title>
+    <script src="template.v2.js"></script>
+    <meta property="og:title" content="SR3: Image Super-Resolution via Iterative Refinement">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="utf8">
+</head>
+
+<body>
+  <div class="n-title">
+   <h1>
+    Image Super-Resolution via Iterative Refinement
+   </h1>
+   <p style="text-align: center"> Denoising diffusion models for image super-resolution and cascaded image generation. </p>
+   <p style="text-align: center"> <a href = "https://arxiv.org/abs/2104.07636" style="text-decoration:none; color: inherit;"><b>Paper</b></a> </p>
+  </div>
+  <div class="n-byline">
+   <div class="byline">
+    <ul class="authors">
+     <li>
+      <a href = "https://chitwansaharia.github.io/" style="text-decoration:none; color: inherit;">Chitwan Saharia</a>
+     </li>
+     <li>
+      <a href = "http://www.jonathanho.me" style="text-decoration:none; color: inherit;">Jonathan Ho</a>
+     </li>
+     <li>
+      <a href = "http://williamchan.ca" style="text-decoration:none; color: inherit;">William Chan</a>
+     </li>
+     <li>
+      <a href = "http://www.research.google/people/106222/" style="text-decoration:none; color: inherit;">Tim Salimans</a>
+     </li>
+     <li>
+      <a href = "http://www.cs.toronto.edu/~fleet/" style="text-decoration:none; color: inherit;">David Fleet</a>
+     </li>
+     <li>
+      <a href = "https://norouzi.github.io/" style="text-decoration:none; color: inherit;">Mohammad Norouzi</a>
+     </li>
+    </ul>
+    <ul class="authors affiliations">
+     <li>
+      <a href = "https://research.google/teams/brain/" style="text-decoration:none; color: inherit;">Google Research, Brain Team</a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <d-article>
+    <video controls autoplay loop width="1080" height="560" style="object-fit: contain;grid-column: page;">
+     <source src="images/super_res_movie.m4v" type="video/mp4">
+     </video>
+    <h2>Abstract</h2>
+    <p>
+      We present SR3, an approach to image <b>S</b>uper-<b>R</b>esolution via
+      <b>R</b>epeated <b>R</b>efinement. SR3 adapts denoising diffusion
+      probabilistic models to conditional image generation and
+      performs super-resolution through a stochastic denoising
+      process. Inference starts with pure Gaussian noise and
+      iteratively refines the noisy output using a U-Net model trained
+      on denoising at various noise levels. SR3 exhibits strong
+      performance on super-resolution tasks at different magnification
+      factors, on faces and natural images. We conduct human
+      evaluation on a standard 8&#215; face super-resolution task on
+      CelebA-HQ, comparing with SOTA GAN methods. SR3 achieves a confusion
+      rate close to 50%, suggesting photo-realistic outputs, while
+      GANs do not exceed a confusion rate of 34%. We further show the
+      effectiveness of SR3 in cascaded image generation, where
+      generative models are chained with super-resolution models,
+      yielding a competitive FID score of 11.3 on ImageNet.
+    </p>
+    <h2>Super-Resolution Results</h2>
+    <p>
+      We demonstrate the performance of SR3 on the tasks of face and natural image super-resolution. We perform face super-resolution at 16&#215;16 &rarr; 128&#215;128 and 64&#215;64 &rarr; 512&#215;512. We also train face super-resolution model for 64&#215;64 &rarr; 256&#215;256 and 256&#215;256 &rarr; 1024&#215;1024 effectively allowing us to do 16&#215; super-resolution through cascading. We also explore 64&#215;64 &rarr; 256&#215;256 super-resolution on natural images.
+    </p>
+    <figure  style="grid-column: text">
+        <img src="images/super_res_examples.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption >  <b>Super Resolution results</b>: (Above) 64&#215;64 &rarr; 512&#215;512 face super-resolution, (Below) 64&#215;64 -> 256&#215;256 natural image super-resolution.  </figcaption>
+    </figure>
+
+
+    <figure  style="grid-column: text">
+        <img src="images/human_eval.png" style="width: 100%; margin-top: 1rem;"/>
+          <figcaption> We conduct 2-Alternatative Forced Choice Experiment human evaluation experiment. Subjects are asked to choose between reference high resolution image, and the model output. We measure the performance of the model through confusion rates (% of time, raters choose model output over reference images.) (Above) We achieve close to 50% confusion rate on the task of 16&#215;16 -> 128&#215;128 faces outperforming state of the art face super-resolution methods. (Below) We also achieve 40% confusion rate on the much difficult task of 64x64 -> 256x256 natural images outperforming regression baseline by a large margin. </figcaption>
+    </figure>
+
+    <p>
+      <h2>Unconditional Generation Results</h2>
+      <p>
+        We generate unconditional 1024&#215;1024 unconditional face images using a cascade of an unconditional diffusion model at 64&#215;64 resolution followed by two 4&#215; super-resolution models. We also generate 256&#215;256 class conditional natural images by using a cascade of a class conditional diffusion model at 64&#215;64 resolution followed by a 4x super-resolution model. Cascaded generation allows training different models in parallel and inference is also efficient as lower resolution models can use more iterations, while higher resolution models use fewer iterations.
+      </p>
+
+      <figure  style="grid-column: text">
+          <img src="images/cascade_fig.svg" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption style="display:flex; justify-content: center"> Cascaded generation of unconditional 1024&#215;1024 faces.  </figcaption>
+      </figure>
+
+      <figure  style="grid-column: text">
+          <img src="images/unconditional_faces.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption style="display:flex; justify-content: center"> Selected example generations of unconditional 1024&#215;1024 faces.  </figcaption>
+      </figure>
+
+      <figure  style="grid-column: text">
+          <img src="images/class_cond_images.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption style="display:flex; justify-content: center"> Selected example generations of class conditional 256&#215;256 natural images. Each row contains examples from a particular class.  </figcaption>
+      </figure>
+
+      <h2>Paper and Citation</h2>
+      <p>
+      Details about our method, and more samples can be found in our <a href="https://arxiv.org/pdf/2104.07636">paper</a>. 
+      <code>@article{saharia2021image,<br>&nbsp; title={Image super-resolution via iterative refinement},<br>&nbsp; author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad}, <br>&nbsp; journal={arXiv preprint arXiv:2104.07636}, <br>&nbsp; year={2021}<br>}<br></code>
+
+      </p>
+
+
+  </d-article>
+
+
+
+
+</body>
