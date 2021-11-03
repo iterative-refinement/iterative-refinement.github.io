@@ -278,47 +278,21 @@ ul.authors.affiliations li {
     <p>
       We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. On four challenging image-to-image translation tasks (colorization, inpainting, uncropping, and JPEG decompression), Palette outperforms strong GAN and regression baselines, and establishes a new state of the art. This is accomplished without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss demonstrating a desirable degree of generality and flexibility. We uncover the impact of using L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention through empirical architecture studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, and report several sample quality scores including FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against reference images for various baselines. We expect this standardized evaluation protocol to play a critical role in advancing image-to-image translation research.  Finally, we show that a single generalist Palette model trained on 3 tasks (colorization, inpainting, JPEG decompression) performs as well or better than task-specific specialist counterparts.
     </p>
-    <h2>Super-Resolution Results</h2>
+    <h2>Results</h2>
     <p>
-      We demonstrate the performance of SR3 on the tasks of face and natural image super-resolution. We perform face super-resolution at 16&#215;16 &rarr; 128&#215;128 and 64&#215;64 &rarr; 512&#215;512. We also train face super-resolution model for 64&#215;64 &rarr; 256&#215;256 and 256&#215;256 &rarr; 1024&#215;1024 effectively allowing us to do 16&#215; super-resolution through cascading. We also explore 64&#215;64 &rarr; 256&#215;256 super-resolution on natural images.
+      We demonstrate the performance of Palette on four tasks - Colorization, Inpainting, Uncropping, and JPEG Decompression. 
     </p>
     <figure  style="grid-column: text">
-        <img src="images/super_res_examples.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption >  <b>Super Resolution results</b>: (Above) 64&#215;64 &rarr; 512&#215;512 face super-resolution, (Below) 64&#215;64 -> 256&#215;256 natural image super-resolution.  </figcaption>
+        <img src="images/main_image.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+          <figcaption >  <b>Performance of Palette on Colorization, Inpainting, Uncropping and JPEG Decompression. </figcaption>
     </figure>
 
-
-    <figure  style="grid-column: text">
-        <img src="images/human_eval.png" style="width: 100%; margin-top: 1rem;"/>
-          <figcaption> We conduct 2-Alternatative Forced Choice Experiment human evaluation experiment. Subjects are asked to choose between reference high resolution image, and the model output. We measure the performance of the model through confusion rates (% of time, raters choose model output over reference images.) (Above) We achieve close to 50% confusion rate on the task of 16&#215;16 -> 128&#215;128 faces outperforming state of the art face super-resolution methods. (Below) We also achieve 40% confusion rate on the much difficult task of 64x64 -> 256x256 natural images outperforming regression baseline by a large margin. </figcaption>
-    </figure>
-
-    <p>
-      <h2>Unconditional Generation Results</h2>
-      <p>
-        We generate unconditional 1024&#215;1024 unconditional face images using a cascade of an unconditional diffusion model at 64&#215;64 resolution followed by two 4&#215; super-resolution models. We also generate 256&#215;256 class conditional natural images by using a cascade of a class conditional diffusion model at 64&#215;64 resolution followed by a 4x super-resolution model. Cascaded generation allows training different models in parallel and inference is also efficient as lower resolution models can use more iterations, while higher resolution models use fewer iterations.
-      </p>
-
-      <figure  style="grid-column: text">
-          <img src="images/cascade_fig.svg" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption style="display:flex; justify-content: center"> Cascaded generation of unconditional 1024&#215;1024 faces.  </figcaption>
-      </figure>
-
-      <figure  style="grid-column: text">
-          <img src="images/unconditional_faces.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption style="display:flex; justify-content: center"> Selected example generations of unconditional 1024&#215;1024 faces.  </figcaption>
-      </figure>
-
-      <figure  style="grid-column: text">
-          <img src="images/class_cond_images.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption style="display:flex; justify-content: center"> Selected example generations of class conditional 256&#215;256 natural images. Each row contains examples from a particular class.  </figcaption>
-      </figure>
 
       <h2>Paper and Citation</h2>
       <p>
-      Details about our method, and more samples can be found in our <a href="https://arxiv.org/pdf/2104.07636">paper</a>. 
-      <code>@article{saharia2021image,<br>&nbsp; title={Image super-resolution via iterative refinement},<br>&nbsp; author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad}, <br>&nbsp; journal={arXiv preprint arXiv:2104.07636}, <br>&nbsp; year={2021}<br>}<br></code>
-
+      Details about our method, and more samples can be found in our <a href="">paper</a>. 
+      <!-- <code>@article{saharia2021image,<br>&nbsp; title={Image super-resolution via iterative refinement},<br>&nbsp; author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad}, <br>&nbsp; journal={arXiv preprint arXiv:2104.07636}, <br>&nbsp; year={2021}<br>}<br></code>
+ -->
       </p>
 
 
