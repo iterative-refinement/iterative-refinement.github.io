@@ -217,9 +217,9 @@ ul.authors.affiliations li {
 
 </style>
 <head>
-    <title>SR3: Iterative Image Enhancement</title>
+    <title>Palette: Image-to-Image Diffusion Models</title>
     <script src="template.v2.js"></script>
-    <meta property="og:title" content="SR3: Image Super-Resolution via Iterative Refinement">
+    <meta property="og:title" content="Palette: Image-to-Image Diffusion Models">
     <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -230,9 +230,9 @@ ul.authors.affiliations li {
 <body>
   <div class="n-title">
    <h1>
-    Image Super-Resolution via Iterative Refinement
+    Palette: Image-to-Image Diffusion Models
    </h1>
-   <p style="text-align: center"> Denoising diffusion models for image super-resolution and cascaded image generation. </p>
+   <p style="text-align: center"> Denoising diffusion models for image-to-image translation. </p>
    <p style="text-align: center"> <a href = "https://arxiv.org/abs/2104.07636" style="text-decoration:none; color: inherit;"><b>Paper</b></a> </p>
   </div>
   <div class="n-byline">
@@ -242,10 +242,16 @@ ul.authors.affiliations li {
       <a href = "https://chitwansaharia.github.io/" style="text-decoration:none; color: inherit;">Chitwan Saharia</a>
      </li>
      <li>
-      <a href = "http://www.jonathanho.me" style="text-decoration:none; color: inherit;">Jonathan Ho</a>
+      <a href = "http://williamchan.ca" style="text-decoration:none; color: inherit;">William Chan</a>
      </li>
      <li>
-      <a href = "http://williamchan.ca" style="text-decoration:none; color: inherit;">William Chan</a>
+      <a href = "https://scholar.google.com/citations?user=eZQNcvcAAAAJ&hl=en" style="text-decoration:none; color: inherit;">Huiwen Chang</a>
+     </li>
+     <li>
+      <a href = "" style="text-decoration:none; color: inherit;">Chris A. Lee</a>
+     </li>
+     <li>
+      <a href = "http://www.jonathanho.me" style="text-decoration:none; color: inherit;">Jonathan Ho</a>
      </li>
      <li>
       <a href = "http://www.research.google/people/106222/" style="text-decoration:none; color: inherit;">Tim Salimans</a>
@@ -270,22 +276,7 @@ ul.authors.affiliations li {
      </video>
     <h2>Abstract</h2>
     <p>
-      We present SR3, an approach to image <b>S</b>uper-<b>R</b>esolution via
-      <b>R</b>epeated <b>R</b>efinement. SR3 adapts denoising diffusion
-      probabilistic models to conditional image generation and
-      performs super-resolution through a stochastic denoising
-      process. Inference starts with pure Gaussian noise and
-      iteratively refines the noisy output using a U-Net model trained
-      on denoising at various noise levels. SR3 exhibits strong
-      performance on super-resolution tasks at different magnification
-      factors, on faces and natural images. We conduct human
-      evaluation on a standard 8&#215; face super-resolution task on
-      CelebA-HQ, comparing with SOTA GAN methods. SR3 achieves a confusion
-      rate close to 50%, suggesting photo-realistic outputs, while
-      GANs do not exceed a confusion rate of 34%. We further show the
-      effectiveness of SR3 in cascaded image generation, where
-      generative models are chained with super-resolution models,
-      yielding a competitive FID score of 11.3 on ImageNet.
+      We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. On four challenging image-to-image translation tasks (colorization, inpainting, uncropping, and JPEG decompression), Palette outperforms strong GAN and regression baselines, and establishes a new state of the art. This is accomplished without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss demonstrating a desirable degree of generality and flexibility. We uncover the impact of using L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention through empirical architecture studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, and report several sample quality scores including FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against reference images for various baselines. We expect this standardized evaluation protocol to play a critical role in advancing image-to-image translation research.  Finally, we show that a single generalist Palette model trained on 3 tasks (colorization, inpainting, JPEG decompression) performs as well or better than task-specific specialist counterparts.
     </p>
     <h2>Super-Resolution Results</h2>
     <p>
