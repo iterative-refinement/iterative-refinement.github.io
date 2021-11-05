@@ -232,8 +232,8 @@ ul.authors.affiliations li {
    <h1>
     Palette: Image-to-Image Diffusion Models
    </h1>
-   <p style="text-align: center"> Denoising diffusion models for image-to-image translation. </p>
-   <p style="text-align: center"> <a href = "https://arxiv.org/abs/2104.07636" style="text-decoration:none; color: inherit;"><b>Paper</b></a> </p>
+   <!-- <p style="text-align: center"> Denoising diffusion models for image-to-image translation. </p> -->
+   <p style="text-align: center"> <a href = "palette.pdf" style="text-decoration:none; color: inherit;"><b>Paper</b></a> </p>
   </div>
   <div class="n-byline">
    <div class="byline">
@@ -271,6 +271,36 @@ ul.authors.affiliations li {
    </div>
   </div>
   <d-article>
+    <!-- <h2>Results</h2> -->
+    <p>
+      We demonstrate the power of Palette on four challenging image-to-image translation tasks, namely Colorization, Inpainting, Uncropping, and JPEG Decompression. 
+    </p>
+
+    <figure>
+      <div overflow: hidden;"> 
+	<img src="colorization/0.jpg" style="display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="colorization/1.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;">
+	<img src="colorization/2.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="colorization/3.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="colorization/4.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="colorization/6.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+<figcaption style="margin-top: 10px">
+Results of palette on image colorization.
+</figcaption></figure>
     <h2>Abstract</h2>
     <p>
       We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. On four challenging image-to-image translation tasks (colorization, inpainting, uncropping, and JPEG decompression), Palette outperforms strong GAN and regression baselines, and establishes a new state of the art. This is accomplished without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss demonstrating a desirable degree of generality and flexibility. We uncover the impact of using L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention through empirical architecture studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, and report several sample quality scores including FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against reference images for various baselines. We expect this standardized evaluation protocol to play a critical role in advancing image-to-image translation research.  Finally, we show that a single generalist Palette model trained on 3 tasks (colorization, inpainting, JPEG decompression) performs as well or better than task-specific specialist counterparts.
@@ -279,36 +309,6 @@ ul.authors.affiliations li {
         <figcaption >Performance of Palette on Colorization, Inpainting, Uncropping and JPEG Decompression.</figcaption>
     </figure>
     </p>
-    <h2>Results</h2>
-    <p>
-      We demonstrate the performance of Palette on four tasks - Colorization, Inpainting, Uncropping, and JPEG Decompression. 
-    </p>
-
-    <figure>
-      <div style="height: 183px; overflow: hidden;"> 
-	<img src="colorization/0.jpg">
-      </div>
-      <div style="height: 170px; overflow: hidden;"> 
-	<img src="colorization/1.jpg" style="margin-top: -13px">
-      </div>
-      <div style="height: 170px; overflow: hidden;"> 
-	<img src="colorization/2.jpg" style="margin-top: -13px">
-      </div>
-      <div style="height: 170px; overflow: hidden;"> 
-	<img src="colorization/3.jpg" style="margin-top: -13px">
-      </div>
-      <div style="height: 170px; overflow: hidden;"> 
-	<img src="colorization/4.jpg" style="margin-top: -13px">
-      </div>
-      <div style="height: 170px; overflow: hidden;"> 
-	<img src="colorization/5.jpg" style="margin-top: -13px">
-      </div>
-      <div style="height: 170px; overflow: hidden;"> 
-	<img src="colorization/6.jpg" style="margin-top: -13px">
-      </div>
-<figcaption style="margin-top: 10px">
-Results of palette on image colorization.
-</figcaption></figure>
 
 
 
