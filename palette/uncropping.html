@@ -279,76 +279,87 @@ ul.authors.affiliations li {
     <!--   We demonstrate the power of Palette on four challenging image-to-image translation tasks, namely Colorization, Inpainting, Uncropping, and JPEG Decompression.  -->
     <!-- </p> -->
 
-<!-- <h2>Summary</h2> -->
-<p style="margin-bottom: 4%; margin-top: -1%">
-We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. On four challenging image-to-image translation tasks (colorization, uncropping, JPEG decompression, and inpainting), Palette outperforms strong GAN and regression baselines, and establishes a new state of the art. This is accomplished without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss demonstrating a desirable degree of generality and flexibility.
-<!-- We uncover the impact of using L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention through empirical architecture studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, and report several sample quality scores including FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against reference images for various baselines. We expect this standardized evaluation protocol to play a critical role in advancing image-to-image translation research. -->
-Importantly, we show that a single generalist Palette model trained on 3 tasks (colorization, inpainting, JPEG decompression) performs as well or better than task-specific specialist counterparts.
-    <!-- <figure> -->
-    <!--     <img src="images/main_image.png"/> -->
-    <!--     <figcaption >Performance of Palette on Colorization, Inpainting, Uncropping and JPEG Decompression.</figcaption> -->
-    <!-- </figure> -->
-</p>
 
-<figure style="margin-top: 0">
+<figure style="margin: 0 0 1% 0">
 <figcaption style="margin-bottom: .5%">
-  Palette results on image colorization.
+  More palette results on image uncropping.
 </figcaption>
       <div style="overflow: hidden;"> 
-	<img src="colorization/17.jpg" style="display:block;">
+	<img src="uncrop_top/0.jpg" style="display:block;">
+      </div>
+      <div style="overflow: hidden;">
+	<img src="uncrop_top/0.jpg" style="margin-top: -2.5%; display:block;">
       </div>
       <div style="overflow: hidden;"> 
-	<img src="colorization/3.jpg" style="margin-top: -2.5%; display:block;">
+	<img src="uncrop_top/1.jpg" style="display:block;">
       </div>
-      <div style="overflow: hidden;"> 
-	<img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
+      <div style="overflow: hidden;">
+	<img src="uncrop_top/1.jpg" style="margin-top: -2.5%; display:block;">
       </div>
-<figcaption style="margin-top: .5%">
-  For more examples <a href="colorization.html">click here</a>.
-</figcaption>
-</figure>
-
-
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: .5%">
-  Palette results on image uncropping (extrapolation).
-</figcaption>
-      <div style="overflow: hidden;"> 
-	<img src="uncrop_top/7.jpg" style="display:block;">
+      <div style="overflow: hidden;">
+	<img src="uncrop_top/2.jpg" style="margin-top: -2.5%; display:block;">
       </div>
       <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_right/2.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="uncrop_top/3.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_right/3.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_top/4.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_right/4.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_top/5.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_right/5.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_top/6.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_right/6.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_top/7.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_right/7.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_top/8.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+	<img src="uncrop_right/8.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="uncrop_top/9.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
 	<img src="uncrop_right/9.jpg" style="margin-top: -2.5%; display:block;">
       </div>
-      <div style="overflow: hidden; display: block"> 
-	<img src="uncrop_bottom/15.jpg" style="margin-top: -2.5%; display:block;">
+      <div style="overflow: hidden;"> 
+	<img src="uncrop_top/10.jpg" style="margin-top: -2.5%; display:block;">
       </div>
-<figcaption style="margin-top: .5%">
-  For more examples <a href="uncropping.html">click here</a>.
+      <div style="overflow: hidden;"> 
+	<img src="uncrop_right/10.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="uncrop_top/11.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+	<img src="uncrop_right/11.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+<figcaption style="margin: .5% 0 10% 0">
+  To go back to the main page <a href="index.html">click here</a>.
 </figcaption>
 </figure>
-
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: .5%">
-  Results of palette on JPEG decompression (JPEG artifact removal).
-</figcaption>
-      <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/0.jpg" style="display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/5.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/8.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
-<figcaption style="margin-top: .5%">
-  For more examples <a href="jpeg_decompression.html">click here</a>.
-</figcaption>
-</figure>
-
-
-<!-- <figcaption style="margin: .5% 0 10% 0"> -->
 
  <!--      <h2>Paper and Citation</h2> -->
  <!--      <p> -->
