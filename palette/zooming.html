@@ -216,9 +216,10 @@ ul.authors.affiliations  {
 ul.authors.affiliations li {
     color: rgb(126,126,126);
 }
-
+.preload { visibility: hidden; }
 
 </style>
+
 <head>
     <title>Palette: Image-to-Image Diffusion Models</title>
     <script src="template.v2.js"></script>
@@ -228,6 +229,17 @@ ul.authors.affiliations li {
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta charset="utf8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('.preload').attr('src', function(i,a){
+        $(this).attr('src','')
+            .removeClass('preload')
+            .attr('src', a);
+        });
+      });
+    </script>
 </head>
 
 <body>
@@ -283,46 +295,46 @@ ul.authors.affiliations li {
 
 <figure style="margin-top: 0">
   <div style="overflow: hidden;"> 
-  <img src="infinite/image1.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image2.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image3.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image4.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image1.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image2.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image3.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image4.gif" style="display:inline-block; width: 24%"> 
   </div>
   <div style="overflow: hidden;"> 
-  <img src="infinite/image5.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image6.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image7.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image8.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image5.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image6.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image7.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image8.gif" style="display:inline-block; width: 24%"> 
   </div>
   <div style="overflow: hidden;"> 
-  <img src="infinite/image9.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image10.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image11.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image12.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image9.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image10.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image11.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image12.gif" style="display:inline-block; width: 24%"> 
   </div>
   <div style="overflow: hidden;"> 
-  <img src="infinite/image13.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image14.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image15.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image16.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image13.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image14.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image15.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image16.gif" style="display:inline-block; width: 24%"> 
   </div>
   <div style="overflow: hidden;"> 
-  <img src="infinite/image17.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image18.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image19.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image20.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image17.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image18.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image19.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image20.gif" style="display:inline-block; width: 24%"> 
   </div>
   <div style="overflow: hidden;"> 
-  <img src="infinite/image21.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image22.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image23.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image24.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image21.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image22.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image23.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image24.gif" style="display:inline-block; width: 24%"> 
   </div>
   <div style="overflow: hidden;"> 
-  <img src="infinite/image25.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image26.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image27.gif" style="display:inline-block; width: 24%"> 
-  <img src="infinite/image28.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image25.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image26.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image27.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/image28.gif" style="display:inline-block; width: 24%"> 
   </div>
 <figcaption style="margin-top: 0; margin-bottom: 0">
   Palette results on infinite zoom via repeated border uncropping. The most zoomed-in frame is the original image.
