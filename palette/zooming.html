@@ -232,7 +232,7 @@ ul.authors.affiliations li {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
-      $(document).ready(function(){
+        $(window).on( "load", function(){
         $('.preload').attr('src', function(i,a){
         $(this).attr('src','')
             .removeClass('preload')
