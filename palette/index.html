@@ -235,6 +235,14 @@ ul.authors.affiliations li {
    <h1>
     Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "https://arxiv.org/pdf/2111.05826.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
    </h1>
+<figure style="margin-top: 0; grid-column: page;">
+  <a href="panoramas/image16.png"><img src="panoramas/image16.png" style="display:block; margin-top: .5%; max-width:900px; margin-left: auto; margin-right: auto"></a>
+  <!-- <a href="panoramas/image3.png"><img src="panoramas/image3.png" style="display:block;  margin-top: .5%"></a> -->
+  <a href="panoramas/image13.png"><img src="panoramas/image13.png" style="display:block; margin-top: .5%; max-width:900px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:900px; margin-left: auto; margin-right: auto">
+  Palette results on panorama generation through uncropping. The middle 256x256 image is the original image. The model is repeatedly applied to 50% right uncropping and 50% left uncropping (4 times each) to obtain the final 256x1280 image. For more examples <a href="panorama.html">click here</a>.
+</figcaption>
+</figure>
    <!-- <p style="text-align: center"> Denoising diffusion models for image-to-image translation. </p> -->
    <!-- <p style="text-align: center">  </p> -->
   </div>
@@ -274,18 +282,6 @@ ul.authors.affiliations li {
    </div>
   </div>
   <d-article>
-     
-<figure style="margin-top: 0">
-      <div style="overflow: hidden;"> 
-	<img src="infinite/2.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/3.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/4.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/6.gif" style="display:inline-block; width: 24%"> 
-      </div>
-<figcaption style="margin-top: 0; margin-bottom: 0">
-  Palette results on infinite zoom via repeated applicaation border uncropping. The first frame is the original image.
-</figcaption>
-</figure>
 
 <!-- <h2>Summary</h2> -->
 <p style="margin-bottom: 4%; margin-top: -2%">
@@ -298,13 +294,25 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
     <!-- </figure> -->
 </p>
 
+<figure style="margin-top: 0">
+      <div style="overflow: hidden;"> 
+	<img src="infinite/2.gif" style="display:inline-block; width: 24%"> 
+	<img src="infinite/3.gif" style="display:inline-block; width: 24%"> 
+	<img src="infinite/4.gif" style="display:inline-block; width: 24%"> 
+	<img src="infinite/6.gif" style="display:inline-block; width: 24%"> 
+      </div>
+<figcaption style="margin-top: 0; margin-bottom: 0">
+  Palette results on infinite zoom via repeated application border uncropping. The first frame is the original image.
+</figcaption>
+</figure>
+
      <video controls autoplay loop style="margin-bottom: 5%">>
        <source src="videos/palette_movie.mp4" type="video/mp4">
      </video>
 
 <figure style="margin-top: 0">
 <figcaption style="margin-bottom: .5%">
-  Palette results on image colorization.
+  Palette results on image colorization. For more examples <a href="colorization.html">click here</a>.
 </figcaption>
       <div style="overflow: hidden;"> 
 	<img src="colorization/17.jpg" style="display:block;">
@@ -315,16 +323,13 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
       <div style="overflow: hidden;"> 
 	<img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
       </div>
-<figcaption style="margin-top: .5%">
-  For more examples <a href="colorization.html">click here</a>.
-</figcaption>
 </figure>
 
 
 
 <figure style="margin-top: 0">
 <figcaption style="margin-bottom: .5%">
-  Palette results on image uncropping (extrapolation).
+  Palette results on image uncropping (extrapolation). For more examples <a href="uncropping.html">click here</a>.
 </figcaption>
       <div style="overflow: hidden;"> 
 	<img src="uncrop_top/7.jpg" style="display:block;">
@@ -335,15 +340,12 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
       <div style="overflow: hidden; display: block"> 
 	<img src="uncrop_bottom/15.jpg" style="margin-top: -2.5%; display:block;">
       </div>
-<figcaption style="margin-top: .5%">
-  For more examples <a href="uncropping.html">click here</a>.
-</figcaption>
 </figure>
 
 
 <figure style="margin-top: 0">
 <figcaption style="margin-bottom: .5%">
-  Palette results on JPEG decompression (JPEG artifact removal).
+  Palette results on JPEG decompression (JPEG artifact removal).   For more examples <a href="jpeg_decompression.html">click here</a>.
 </figcaption>
       <div style="overflow: hidden;"> 
 	<img src="jpeg_decompression/0.jpg" style="display:block;">
@@ -354,23 +356,7 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
       <div style="overflow: hidden;"> 
 	<img src="jpeg_decompression/8.jpg" style="margin-top: -2.5%; display:block;">
       </div>
-<figcaption style="margin-top: .5%">
-  For more examples <a href="jpeg_decompression.html">click here</a>.
-</figcaption>
 </figure>
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: 1%">
-  Palette results on panorama generation through uncropping. The middle 256x256 image is provided as input, and the model is repeatedly applied to 50% right uncropping and 50% left uncropping (4 times each) to obtain a final image of the size 256x1280.
-</figcaption>
-  <img src="panoramas/image3.png" style="display:block;  margin-top: .5%">
-  <img src="panoramas/image13.png" style="display:block; margin-top: .5%">
-  <img src="panoramas/image16.png" style="display:block; margin-top: .5%">
-<figcaption style="margin-top: .5%">
-  For more examples <a href="jpeg_decompression.html">click here</a>.
-</figcaption>
-</figure>
-
 
 <!-- <figcaption style="margin: .5% 0 10% 0"> -->
 
