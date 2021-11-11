@@ -17,7 +17,7 @@
 
 <style>
 .base-grid,
-pa.n-header,
+.n-header,
 .n-byline,
 .n-title,
 .n-article,
@@ -104,7 +104,7 @@ pa.n-header,
 }
 
 .n-title {
-    padding: 2.5rem 0 0.5rem;
+    padding: 4rem 0 0.5rem;
 }
 
 .l-page {
@@ -232,14 +232,6 @@ ul.authors.affiliations li {
 
 <body>
   <div class="n-title">
-<figure style="margin-top: 0; grid-column: page;">
-  <a href="panoramas/image16.png"><img src="panoramas/image16.png" style="display:block; margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
-  <!-- <a href="panoramas/image3.png"><img src="panoramas/image3.png" style="display:block;  margin-top: .5%"></a> -->
-  <a href="panoramas/image13.png"><img src="panoramas/image13.png" style="display:block; margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
-<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
-  Palette results on panorama generation through uncropping. The middle 256x256 image is the original image. The model is repeatedly applied to 50% right uncropping and 50% left uncropping (4 times each) to obtain the final 256x1280 image. For more examples <a href="panorama.html">click here</a>.
-</figcaption>
-</figure>
    <h1>
     Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "https://arxiv.org/pdf/2111.05826.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
    </h1>
@@ -282,98 +274,80 @@ ul.authors.affiliations li {
    </div>
   </div>
   <d-article>
+    <!-- <h2>Results</h2> -->
+    <!-- <p> -->
+    <!--   We demonstrate the power of Palette on four challenging image-to-image translation tasks, namely Colorization, Inpainting, Uncropping, and JPEG Decompression.  -->
+    <!-- </p> -->
 
-<!-- <h2>Summary</h2> -->
-<p style="margin-bottom: 4%; margin-top: -2%">
-<b>Abstract:</b> We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. On four challenging image-to-image translation tasks (colorization, uncropping, JPEG decompression, and inpainting), Palette outperforms strong GAN and regression baselines, and establishes a new state of the art. This is accomplished without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss demonstrating a desirable degree of generality and flexibility.
-<!-- We uncover the impact of using L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention through empirical architecture studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, and report several sample quality scores including FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against reference images for various baselines. We expect this standardized evaluation protocol to play a critical role in advancing image-to-image translation research. -->
-Importantly, we show that a single generalist Palette model trained on 3 tasks (colorization, inpainting, JPEG decompression) performs as well or better than task-specific specialist counterparts.
-    <!-- <figure> -->
-    <!--     <img src="images/main_image.png"/> -->
-    <!--     <figcaption >Performance of Palette on Colorization, Inpainting, Uncropping and JPEG Decompression.</figcaption> -->
-    <!-- </figure> -->
-</p>
 
-<figure style="margin-top: 0">
-      <div style="overflow: hidden;"> 
-	<img src="infinite/2.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/3.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/4.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/6.gif" style="display:inline-block; width: 24%"> 
-      </div>
-<figcaption style="margin-top: 0; margin-bottom: 0">
-  Palette results on infinite zoom via repeated border uncropping. The most zoomed-in frame is the original image. For more examples <a href="zooming.html">click here</a>
-</figcaption>
-</figure>
-
-  <video autoplay="" loop="" muted="" playsinline="" controls="" style="margin-bottom: 6%">
-    <source src="videos/palette_movie.mp4" type="video/mp4">
-  </video>
-
-<figure style="margin-top: 0">
+<figure style="margin: 0 0 1% 0">
 <figcaption style="margin-bottom: .5%">
-  Palette results on image colorization. For more examples <a href="colorization.html">click here</a>.
+  Palette results on image colorization.
 </figcaption>
       <div style="overflow: hidden;"> 
-	<img src="colorization/17.jpg" style="display:block;">
+  <img src="inpainting/0.jpg" style="display:block;">
       </div>
       <div style="overflow: hidden;"> 
-	<img src="colorization/3.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="inpainting/1.jpg" style="margin-top: -2.5%; display:block;">
       </div>
       <div style="overflow: hidden;"> 
-	<img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="inpainting/2.jpg" style="margin-top: -2.5%; display:block;">
       </div>
-</figure>
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: .5%">
-  Palette results on image inpainting. For more examples <a href="inpainting.html">click here</a>.
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/3.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/4.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/5.jpg" style="display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/6.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/7.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/8.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/9.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/10.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/11.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/13.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/14.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/15.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/16.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/17.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/20.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/21.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/22.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+<figcaption style="margin: .5% 0 10% 0">
+  To go back to the main page <a href="index.html">click here</a>.
 </figcaption>
-      <div style="overflow: hidden;"> 
-  <img src="inpainting/18.jpg" style="display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-  <img src="inpainting/19.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-  <img src="inpainting/12.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
 </figure>
-
-
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: .5%">
-  Palette results on image uncropping (extrapolation). For more examples <a href="uncropping.html">click here</a>.
-</figcaption>
-      <div style="overflow: hidden;"> 
-	<img src="uncrop_top/7.jpg" style="display:block;">
-      </div>
-      <div style="overflow: hidden; display: block"> 
-	<img src="uncrop_right/9.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
-      <div style="overflow: hidden; display: block"> 
-	<img src="uncrop_bottom/15.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
-</figure>
-
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: .5%">
-  Palette results on JPEG decompression (JPEG artifact removal).   For more examples <a href="jpeg_decompression.html">click here</a>.
-</figcaption>
-      <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/0.jpg" style="display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/5.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/8.jpg" style="margin-top: -2.5%; display:block;">
-      </div>
-</figure>
-
-<!-- <figcaption style="margin: .5% 0 10% 0"> -->
 
  <!--      <h2>Paper and Citation</h2> -->
  <!--      <p> -->
