@@ -17,7 +17,7 @@
 
 <style>
 .base-grid,
-.n-header,
+pa.n-header,
 .n-byline,
 .n-title,
 .n-article,
@@ -233,7 +233,7 @@ ul.authors.affiliations li {
 <body>
   <div class="n-title">
    <h1>
-    Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "palette.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
+    Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "https://arxiv.org/pdf/2111.05826.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
    </h1>
    <!-- <p style="text-align: center"> Denoising diffusion models for image-to-image translation. </p> -->
    <!-- <p style="text-align: center">  </p> -->
@@ -282,13 +282,13 @@ ul.authors.affiliations li {
 	<img src="infinite/4.gif" style="display:inline-block; width: 24%"> 
 	<img src="infinite/6.gif" style="display:inline-block; width: 24%"> 
       </div>
-<figcaption style="margin-top: .5%; margin-bottom: 0">
-  Palette results on infinite-ish zoom via repeated applicaation border uncropping. Only the very first image is real.
+<figcaption style="margin-top: 0; margin-bottom: 0">
+  Palette results on infinite zoom via repeated applicaation border uncropping. Only the very first image is real.
 </figcaption>
 </figure>
 
 <!-- <h2>Summary</h2> -->
-<p style="margin-bottom: 4%; margin-top: 0">
+<p style="margin-bottom: 4%; margin-top: -2%">
 <b>Abstract:</b> We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. On four challenging image-to-image translation tasks (colorization, uncropping, JPEG decompression, and inpainting), Palette outperforms strong GAN and regression baselines, and establishes a new state of the art. This is accomplished without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss demonstrating a desirable degree of generality and flexibility.
 <!-- We uncover the impact of using L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention through empirical architecture studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, and report several sample quality scores including FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against reference images for various baselines. We expect this standardized evaluation protocol to play a critical role in advancing image-to-image translation research. -->
 Importantly, we show that a single generalist Palette model trained on 3 tasks (colorization, inpainting, JPEG decompression) performs as well or better than task-specific specialist counterparts.
@@ -343,7 +343,7 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
 
 <figure style="margin-top: 0">
 <figcaption style="margin-bottom: .5%">
-  Results of palette on JPEG decompression (JPEG artifact removal).
+  Palette results on JPEG decompression (JPEG artifact removal).
 </figcaption>
       <div style="overflow: hidden;"> 
 	<img src="jpeg_decompression/0.jpg" style="display:block;">
@@ -360,18 +360,12 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
 </figure>
 
 <figure style="margin-top: 0">
-<figcaption style="margin-bottom: .5%">
-  Panoramas generated through Palette Uncropping.
+<figcaption style="margin-bottom: 1%">
+  Palette results on panorama generation through uncropping. The middle 256x256 image is provided as input, and the model is repeatedly applied to 50% right uncropping and 50% left uncropping (4 times each) to obtain a final image of the size 256x1280.
 </figcaption>
-      <div style="overflow: hidden;"> 
-  <img src="panoramas/image3.png" style="display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-  <img src="panoramas/image13.png" style="margin-top: -2.5%; display:block;">
-      </div>
-      <div style="overflow: hidden;"> 
-  <img src="panoramas/image16.png" style="margin-top: -2.5%; display:block;">
-      </div>
+  <img src="panoramas/image3.png" style="display:block;  margin-top: .5%">
+  <img src="panoramas/image13.png" style="display:block; margin-top: .5%">
+  <img src="panoramas/image16.png" style="display:block; margin-top: .5%">
 <figcaption style="margin-top: .5%">
   For more examples <a href="jpeg_decompression.html">click here</a>.
 </figcaption>
