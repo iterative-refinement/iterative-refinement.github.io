@@ -1,0 +1,336 @@
+<!--
+  Copyright 2018 The Distill Template Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!doctype html>
+
+<style>
+.base-grid,
+.n-header,
+.n-byline,
+.n-title,
+.n-article,
+.n-footer {
+    display: grid;
+    justify-items: stretch;
+    grid-template-columns: [screen-start] 8px [page-start kicker-start text-start gutter-start middle-start] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 8px [screen-end];
+    grid-column-gap: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 8px;
+}
+
+@media(min-width: 768px) {
+    .base-grid,
+    .n-header,
+    .n-byline,
+    .n-title,
+    .n-article,
+    .n-footer {
+        display: grid;
+        justify-items: stretch;
+        grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 45px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
+        grid-column-gap: 16px;
+    }
+
+    .grid {
+        grid-column-gap: 16px;
+    }
+}
+
+@media(min-width: 1000px) {
+    .base-grid,
+    .n-header,
+    .n-byline,
+    .n-title,
+    .n-article,
+    .n-footer {
+        display: grid;
+        justify-items: stretch;
+        grid-template-columns: [screen-start] 1fr [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 50px 50px 50px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
+        grid-column-gap: 16px;
+    }
+
+    .grid {
+        grid-column-gap: 16px;
+    }
+}
+
+@media (min-width: 1180px) {
+    .base-grid,
+    .n-header,
+    .n-byline,
+    .n-title,
+    .n-article,
+    .n-footer {
+        display: grid;
+        justify-items: stretch;
+        grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+        grid-column-gap: 32px;
+    }
+    .grid {
+        grid-column-gap: 32px;
+    }
+
+}
+
+.base-grid {
+  grid-column: screen;
+}
+
+/* default grid column assignments */
+.n-title > *  {
+
+
+
+    grid-column: text;
+}
+
+.n-article > *  {
+  grid-column: text;
+}
+
+.n-title {
+    padding: 4rem 0 0.5rem;
+}
+
+.l-page {
+    grid-column: page;
+}
+
+.l-article {
+    grid-column: text;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+
+.pixelated {
+    image-rendering: pixelated;
+}
+
+strong {
+    font-weight: 600;
+}
+
+/*------------------------------------------------------------------*/
+/* title */
+.n-title h1 {
+    font-family: "Barlow",system-ui,Arial,sans-serif;
+    color:#082333;
+    grid-column: text;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .n-title h1 {
+        font-size: 50px;
+    }
+}
+
+
+.n-byline {
+  contain: style;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  line-height: 1.8em;
+  padding: 1.5rem 0;
+  min-height: 1.8em;
+}
+
+.n-byline .byline {
+  grid-column: text;
+}
+
+.byline {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid {
+    display: grid;
+    grid-column-gap: 8px;
+}
+
+@media (min-width: 768px) {
+.grid {
+    grid-column-gap: 16px;
+}
+}
+
+.n-byline p {
+  margin: 0;
+}
+
+.n-byline h3 {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    text-transform: uppercase;
+}
+.n-byline .authors-affiliations {
+  grid-column-end: span 2;
+  grid-template-columns: 1fr 1fr;
+}
+
+ul.authors {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+ul.authors li {
+    padding: 0 0.5rem;
+    display: inline-block;
+}
+
+ul.authors sup {
+    color: rgb(126,126,126);
+}
+
+ul.authors.affiliations  {
+    margin-top: 0.5rem;
+}
+
+ul.authors.affiliations li {
+    color: rgb(126,126,126);
+}
+
+
+</style>
+<head>
+    <title>Palette: Image-to-Image Diffusion Models</title>
+    <script src="template.v2.js"></script>
+    <meta property="og:title" content="Palette: Image-to-Image Diffusion Models">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="utf8">
+</head>
+
+<body>
+  <div class="n-title">
+   <h1>
+    Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "https://arxiv.org/pdf/2111.05826.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
+   </h1>
+   <!-- <p style="text-align: center"> Denoising diffusion models for image-to-image translation. </p> -->
+   <!-- <p style="text-align: center">  </p> -->
+  </div>
+  <div class="n-byline">
+   <div class="byline">
+    <ul class="authors">
+     <li>
+      <a href = "https://chitwansaharia.github.io/" style="text-decoration:none; color: inherit;">Chitwan Saharia</a>
+     </li>
+     <li>
+      <a href = "http://williamchan.ca" style="text-decoration:none; color: inherit;">William Chan</a>
+     </li>
+     <li>
+      <a href = "https://scholar.google.com/citations?user=eZQNcvcAAAAJ&hl=en" style="text-decoration:none; color: inherit;">Huiwen Chang</a>
+     </li>
+     <li>
+      <a href = "" style="text-decoration:none; color: inherit;">Chris A. Lee</a>
+     </li>
+     <li>
+      <a href = "http://www.jonathanho.me" style="text-decoration:none; color: inherit;">Jonathan Ho</a>
+     </li>
+     <li>
+      <a href = "http://www.research.google/people/106222/" style="text-decoration:none; color: inherit;">Tim Salimans</a>
+     </li>
+     <li>
+      <a href = "http://www.cs.toronto.edu/~fleet/" style="text-decoration:none; color: inherit;">David Fleet</a>
+     </li>
+     <li>
+      <a href = "https://norouzi.github.io/" style="text-decoration:none; color: inherit;">Mohammad Norouzi</a>
+     </li>
+    </ul>
+    <ul class="authors affiliations">
+     <li>
+      <a href = "https://research.google/" style="text-decoration:none; color: inherit;">Google Research</a>
+     </li>
+    </ul>
+   </div>
+  </div>
+  <d-article>
+    <!-- <h2>Results</h2> -->
+    <!-- <p> -->
+    <!--   We demonstrate the power of Palette on four challenging image-to-image translation tasks, namely Colorization, Inpainting, Uncropping, and JPEG Decompression.  -->
+    <!-- </p> -->
+
+
+<figure style="margin-top: 0; grid-column: page;">
+<figcaption style="margin-bottom: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  Palette results on panorama generation through uncropping. The middle 256x256 image is the original image. The model is repeatedly applied to 50% right uncropping and 50% left uncropping (4 times each) to obtain the final 256x1280 image.
+</figcaption>
+  <a href="panoramas/image1.png"><img src="panoramas/image1.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image2.png"><img src="panoramas/image2.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image3.png"><img src="panoramas/image3.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image4.png"><img src="panoramas/image4.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image5.png"><img src="panoramas/image5.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image6.png"><img src="panoramas/image6.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image7.png"><img src="panoramas/image7.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image8.png"><img src="panoramas/image8.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image9.png"><img src="panoramas/image9.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image10.png"><img src="panoramas/image10.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image11.png"><img src="panoramas/image11.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image12.png"><img src="panoramas/image12.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image13.png"><img src="panoramas/image13.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image14.png"><img src="panoramas/image14.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image15.png"><img src="panoramas/image15.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  <a href="panoramas/image16.png"><img src="panoramas/image16.png" style="display:block;  margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  To go back to the main page <a href="index.html">click here</a>.
+</figcaption>
+</figure>
+
+ <!--      <h2>Paper and Citation</h2> -->
+ <!--      <p> -->
+ <!--      Details about our method, and more samples can be found in our <a href="">paper</a>.  -->
+ <!--      <\!-- <code>@article{saharia2021image,<br>&nbsp; title={Image super-resolution via iterative refinement},<br>&nbsp; author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad}, <br>&nbsp; journal={arXiv preprint arXiv:2104.07636}, <br>&nbsp; year={2021}<br>}<br></code> -->
+ <!-- -\-> -->
+ <!--      </p> -->
+
+
+  </d-article>
+
+
+
+
+</body>
