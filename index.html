@@ -268,7 +268,7 @@ ul.authors.affiliations li {
     <video controls autoplay loop width="1080" height="560" style="object-fit: contain;grid-column: page;">
      <source src="images/super_res_movie.m4v" type="video/mp4">
      </video>
-    <h2>Abstract</h2>
+    <h3>Summary</h3>
     <p>
       We present SR3, an approach to image <b>S</b>uper-<b>R</b>esolution via
       <b>R</b>epeated <b>R</b>efinement. SR3 adapts denoising diffusion
@@ -287,7 +287,7 @@ ul.authors.affiliations li {
       generative models are chained with super-resolution models,
       yielding a competitive FID score of 11.3 on ImageNet.
     </p>
-    <h2>Super-Resolution Results</h2>
+    <h3>Super-Resolution Results</h3>
     <p>
       We demonstrate the performance of SR3 on the tasks of face and natural image super-resolution. We perform face super-resolution at 16&#215;16 &rarr; 128&#215;128 and 64&#215;64 &rarr; 512&#215;512. We also train face super-resolution model for 64&#215;64 &rarr; 256&#215;256 and 256&#215;256 &rarr; 1024&#215;1024 effectively allowing us to do 16&#215; super-resolution through cascading. We also explore 64&#215;64 &rarr; 256&#215;256 super-resolution on natural images.
     </p>
@@ -303,7 +303,7 @@ ul.authors.affiliations li {
     </figure>
 
     <p>
-      <h2>Unconditional Generation Results</h2>
+      <h3>Unconditional Generation Results</h3>
       <p>
         We generate unconditional 1024&#215;1024 unconditional face images using a cascade of an unconditional diffusion model at 64&#215;64 resolution followed by two 4&#215; super-resolution models. We also generate 256&#215;256 class conditional natural images by using a cascade of a class conditional diffusion model at 64&#215;64 resolution followed by a 4x super-resolution model. Cascaded generation allows training different models in parallel and inference is also efficient as lower resolution models can use more iterations, while higher resolution models use fewer iterations.
       </p>
@@ -323,17 +323,29 @@ ul.authors.affiliations li {
           <figcaption style="display:flex; justify-content: center"> Selected example generations of class conditional 256&#215;256 natural images. Each row contains examples from a particular class.  </figcaption>
       </figure>
 
-      <h2>Paper and Citation</h2>
-      <p>
-      Details about our method, and more samples can be found in our <a href="https://arxiv.org/pdf/2104.07636">paper</a>. 
-      <code>@article{saharia2021image,<br>&nbsp; title={Image super-resolution via iterative refinement},<br>&nbsp; author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad}, <br>&nbsp; journal={arXiv preprint arXiv:2104.07636}, <br>&nbsp; year={2021}<br>}<br></code>
+<h3>Related projects</h3>
+<ul>
+  <li><a href="https://cascaded-diffusion.github.io/">Cascaded Diffusion Models</a></li>
+  <li><a href="https://iterative-refinement.github.io/palette/">Palette: Image-to-Image Diffusion Models</a></li>
+</ul>
+      
 
-      </p>
-
-
-  </d-article>
-
-
+<h3>Citation</h3>
+<p>
+  For more details and additional results, <a href="https://arxiv.org/abs/2104.07636">read the full paper</a>.
+</p>
+<code>
+  @article{saharia2021image,
+  <div style="padding-left: 5%; margin: 0">
+    title={Image super-resolution via iterative refinement},<br/>
+    author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad},<br/>
+    journal={arXiv:2104.07636},<br/>
+    year={2021}}<br/>
+  </div>
+  }<br/>
+</code>
+<span style="margin-bottom: 10%"></span>
+</d-article>
 
 
 </body>
