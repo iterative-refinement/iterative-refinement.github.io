@@ -217,6 +217,8 @@ ul.authors.affiliations li {
     color: rgb(126,126,126);
 }
 
+.preload { visibility: hidden; }
+
 
 </style>
 <head>
@@ -227,7 +229,17 @@ ul.authors.affiliations li {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="utf8">
+    <script>
+        $(window).on( "load", function(){
+        $('.preload').attr('src', function(i,a){
+        $(this).attr('src','')
+            .removeClass('preload')
+            .attr('src', a);
+        });
+      });
+    </script>
 </head>
 
 <body>
@@ -296,10 +308,10 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
 
 <figure style="margin-top: 0">
       <div style="overflow: hidden;"> 
-	<img src="infinite/2.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/3.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/4.gif" style="display:inline-block; width: 24%"> 
-	<img src="infinite/6.gif" style="display:inline-block; width: 24%"> 
+	<img class="preload" src="infinite/2.gif" style="display:inline-block; width: 24%"> 
+	<img class="preload" src="infinite/3.gif" style="display:inline-block; width: 24%"> 
+	<img class="preload" src="infinite/4.gif" style="display:inline-block; width: 24%"> 
+	<img class="preload" src="infinite/6.gif" style="display:inline-block; width: 24%"> 
       </div>
 <figcaption style="margin-top: 0; margin-bottom: 0">
   Palette results on infinite zoom out. The most zoomed-in frame is the original image. For more examples <a href="zooming.html">click here</a>
