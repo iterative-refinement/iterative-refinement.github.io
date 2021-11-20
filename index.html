@@ -17,7 +17,7 @@
 
 <style>
 .base-grid,
-.n-header,
+pa.n-header,
 .n-byline,
 .n-title,
 .n-article,
@@ -93,7 +93,10 @@
 
 /* default grid column assignments */
 .n-title > *  {
-  grid-column: text;
+
+
+
+    grid-column: text;
 }
 
 .n-article > *  {
@@ -101,7 +104,7 @@
 }
 
 .n-title {
-    padding: 4rem 0 0.5rem;
+    padding: 2.5rem 0 0.5rem;
 }
 
 .l-page {
@@ -214,26 +217,48 @@ ul.authors.affiliations li {
     color: rgb(126,126,126);
 }
 
+.preload { visibility: hidden; }
+
 
 </style>
 <head>
-    <title>SR3: Iterative Image Enhancement</title>
+    <title>Palette: Image-to-Image Diffusion Models</title>
     <script src="template.v2.js"></script>
-    <meta property="og:title" content="SR3: Image Super-Resolution via Iterative Refinement">
+    <meta property="og:title" content="Palette: Image-to-Image Diffusion Models">
     <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="utf8">
+    <script>
+        $(window).on( "load", function(){
+        $('.preload').attr('src', function(i,a){
+        $(this).attr('src','')
+            .removeClass('preload')
+            .attr('src', a);
+        });
+      });
+    </script>
 </head>
 
 <body>
   <div class="n-title">
+<figure style="margin-top: 0; grid-column: page;">
+  <a href="panoramas/image16.png"><img src="panoramas/image16.png" style="display:block; margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+  <!-- <a href="panoramas/image3.png"><img src="panoramas/image3.png" style="display:block;  margin-top: .5%"></a> -->
+  <a href="panoramas/image13.png"><img src="panoramas/image13.png" style="display:block; margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto"></a>
+<figcaption style="margin-top: .5%; max-width:950px; margin-left: auto; margin-right: auto">
+  Palette results on panorama generation. The middle 256x256 image is the original image. The model is repeatedly applied to 50% right uncropping and 50% left uncropping (4 times each) to obtain the final 256x1280 image. For more examples <a href="panorama.html">click here</a>.
+</figcaption>
+</figure>
    <h1>
-    Image Super-Resolution via Iterative Refinement
+    Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "https://arxiv.org/pdf/2111.05826.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
    </h1>
-   <p style="text-align: center"> Denoising diffusion models for image super-resolution and cascaded image generation. </p>
-   <p style="text-align: center"> <a href = "https://arxiv.org/abs/2104.07636" style="text-decoration:none; color: inherit;"><b>Paper</b></a> </p>
+   <p style="text-align: center;">
+    A generalist conditional diffusion model that beats strong task-specific GAN based baselines on several image-to-image translation tasks without any task-specific customizations.
+   </p>
+
   </div>
   <div class="n-byline">
    <div class="byline">
@@ -242,10 +267,16 @@ ul.authors.affiliations li {
       <a href = "https://chitwansaharia.github.io/" style="text-decoration:none; color: inherit;">Chitwan Saharia</a>
      </li>
      <li>
-      <a href = "http://www.jonathanho.me" style="text-decoration:none; color: inherit;">Jonathan Ho</a>
+      <a href = "http://williamchan.ca" style="text-decoration:none; color: inherit;">William Chan</a>
      </li>
      <li>
-      <a href = "http://williamchan.ca" style="text-decoration:none; color: inherit;">William Chan</a>
+      <a href = "https://scholar.google.com/citations?user=eZQNcvcAAAAJ&hl=en" style="text-decoration:none; color: inherit;">Huiwen Chang</a>
+     </li>
+     <li>
+      <a href = "" style="text-decoration:none; color: inherit;">Chris A. Lee</a>
+     </li>
+     <li>
+      <a href = "http://www.jonathanho.me" style="text-decoration:none; color: inherit;">Jonathan Ho</a>
      </li>
      <li>
       <a href = "http://www.research.google/people/106222/" style="text-decoration:none; color: inherit;">Tim Salimans</a>
@@ -259,93 +290,135 @@ ul.authors.affiliations li {
     </ul>
     <ul class="authors affiliations">
      <li>
-      <a href = "https://research.google/teams/brain/" style="text-decoration:none; color: inherit;">Google Research, Brain Team</a>
+      <a href = "https://research.google/" style="text-decoration:none; color: inherit;">Google Research</a>
      </li>
     </ul>
    </div>
   </div>
   <d-article>
-    <video controls autoplay loop width="1080" height="560" style="object-fit: contain;grid-column: page;">
-     <source src="images/super_res_movie.m4v" type="video/mp4">
-     </video>
-    <h3>Summary</h3>
-    <p>
-      We present SR3, an approach to image <b>S</b>uper-<b>R</b>esolution via
-      <b>R</b>epeated <b>R</b>efinement. SR3 adapts denoising diffusion
-      probabilistic models to conditional image generation and
-      performs super-resolution through a stochastic denoising
-      process. Inference starts with pure Gaussian noise and
-      iteratively refines the noisy output using a U-Net model trained
-      on denoising at various noise levels. SR3 exhibits strong
-      performance on super-resolution tasks at different magnification
-      factors, on faces and natural images. We conduct human
-      evaluation on a standard 8&#215; face super-resolution task on
-      CelebA-HQ, comparing with SOTA GAN methods. SR3 achieves a confusion
-      rate close to 50%, suggesting photo-realistic outputs, while
-      GANs do not exceed a confusion rate of 34%. We further show the
-      effectiveness of SR3 in cascaded image generation, where
-      generative models are chained with super-resolution models,
-      yielding a competitive FID score of 11.3 on ImageNet.
-    </p>
-    <h3>Super-Resolution Results</h3>
-    <p>
-      We demonstrate the performance of SR3 on the tasks of face and natural image super-resolution. We perform face super-resolution at 16&#215;16 &rarr; 128&#215;128 and 64&#215;64 &rarr; 512&#215;512. We also train face super-resolution model for 64&#215;64 &rarr; 256&#215;256 and 256&#215;256 &rarr; 1024&#215;1024 effectively allowing us to do 16&#215; super-resolution through cascading. We also explore 64&#215;64 &rarr; 256&#215;256 super-resolution on natural images.
-    </p>
-    <figure  style="grid-column: text">
-        <img src="images/super_res_examples.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption >  <b>Super Resolution results</b>: (Above) 64&#215;64 &rarr; 512&#215;512 face super-resolution, (Below) 64&#215;64 -> 256&#215;256 natural image super-resolution.  </figcaption>
-    </figure>
+
+<!-- <h2>Summary</h2> -->
+
+<figure style="margin-top: 0">
+      <div style="overflow: hidden;"> 
+  <img class="preload" src="infinite/2.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/3.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/4.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/6.gif" style="display:inline-block; width: 24%"> 
+      </div>
+<figcaption style="margin-top: 0; margin-bottom: 0">
+  Palette results on infinite zoom out. The most zoomed-in frame is the original image. We then repeatedly apply Palette for uncropping along all 4 sides to generate infinite zoom out effect. **Comment on Robustness** For more examples <a href="zooming.html">click here</a>
+</figcaption>
+</figure>
 
 
-    <figure  style="grid-column: text">
-        <img src="images/human_eval.png" style="width: 100%; margin-top: 1rem;"/>
-          <figcaption> We conduct 2-Alternatative Forced Choice Experiment human evaluation experiment. Subjects are asked to choose between reference high resolution image, and the model output. We measure the performance of the model through confusion rates (% of time, raters choose model output over reference images.) (Above) We achieve close to 50% confusion rate on the task of 16&#215;16 -> 128&#215;128 faces outperforming state of the art face super-resolution methods. (Below) We also achieve 40% confusion rate on the much difficult task of 64x64 -> 256x256 natural images outperforming regression baseline by a large margin. </figcaption>
-    </figure>
+<video autoplay="" loop="" muted="" playsinline="" controls="" style="margin-bottom: 6%">
+  <source src="videos/palette_movie.mp4" type="video/mp4">
+</video>
 
-    <p>
-      <h3>Unconditional Generation Results</h3>
-      <p>
-        We generate unconditional 1024&#215;1024 unconditional face images using a cascade of an unconditional diffusion model at 64&#215;64 resolution followed by two 4&#215; super-resolution models. We also generate 256&#215;256 class conditional natural images by using a cascade of a class conditional diffusion model at 64&#215;64 resolution followed by a 4x super-resolution model. Cascaded generation allows training different models in parallel and inference is also efficient as lower resolution models can use more iterations, while higher resolution models use fewer iterations.
-      </p>
+<h2>Summary</h2>
 
-      <figure  style="grid-column: text">
-          <img src="images/cascade_fig.svg" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption style="display:flex; justify-content: center"> Cascaded generation of unconditional 1024&#215;1024 faces.  </figcaption>
-      </figure>
-
-      <figure  style="grid-column: text">
-          <img src="images/unconditional_faces.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption style="display:flex; justify-content: center"> Selected example generations of unconditional 1024&#215;1024 faces.  </figcaption>
-      </figure>
-
-      <figure  style="grid-column: text">
-          <img src="images/class_cond_images.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
-          <figcaption style="display:flex; justify-content: center"> Selected example generations of class conditional 256&#215;256 natural images. Each row contains examples from a particular class.  </figcaption>
-      </figure>
-
-<h3>Related projects</h3>
-<ul>
-  <li><a href="https://cascaded-diffusion.github.io/">Cascaded Diffusion Models</a></li>
-  <li><a href="https://iterative-refinement.github.io/palette/">Palette: Image-to-Image Diffusion Models</a></li>
-</ul>
-      
-
-<h3>Citation</h3>
-<p>
-  For more details and additional results, <a href="https://arxiv.org/abs/2104.07636">read the full paper</a>.
+<p style="margin-bottom: 4%; margin-top: -2%">
+ Many computer vision problems can be formulated as image-to-image translation. Examples include restoration tasks like <a href="https://en.wikipedia.org/wiki/Super-resolution_imaging"> super-resolution </a>, <a href="https://www.reddit.com/r/Colorization/">colorization</a>, and <a href="https://en.wikipedia.org/wiki/Inpainting"> inpainting </a>. The difficulty in these problems arises because for a single input image, we can have multiple plausible output images e.g. for colorization, given a black-and-white image, there can be several possible colorized versions of it. 
 </p>
-<code>
-  @article{saharia2021image,
-  <div style="padding-left: 5%; margin: 0">
-    title={Image super-resolution via iterative refinement},<br/>
-    author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad},<br/>
-    journal={arXiv:2104.07636},<br/>
-    year={2021}}<br/>
-  </div>
-  }<br/>
-</code>
-<span style="margin-bottom: 10%"></span>
-</d-article>
+<p style="margin-bottom: 4%; margin-top: -2%">
+ A natural approach to image-to-image translation is to learn the conditional distribution of output images given the input, using deep <a href="https://en.wikipedia.org/wiki/Generative_model"> generative models </a>. Generative Adversarial Networks (GANs) 
+ <d-cite key="goodfellow2014generative, radford2015unsupervised"></d-cite> 
+ have emerged as the model family of choice for many image-to-image translation tasks 
+ <d-cite key="isola-cvpr-2017"></d-cite>,
+  as they are capable of generating high fidelity outputs, are broadly applicable, and support efficient sampling. Nevertheless, GANs can be challenging to train <d-cite key="arjovsky-arxiv-2017, gulrajani2017improved"></d-cite>, and often drop modes in the output distribution <d-cite key="metz2016unrolled, ravuri2019classification"></d-cite>. Autoregressive Models <d-cite key="oord2016conditional, parmar2018image"></d-cite>, VAEs <d-cite key="Kingma2013, vahdat2021nvae"></d-cite>, and Normalizing Flows <d-cite key="dinh2016density, Kingma2018"></d-cite> have also seen success in specific applications, but arguably, have not established the same level of sample quality and generality as GANs. 
+</p>
+
+
+<p style="margin-bottom: 4%; margin-top: -2%">
+ <a href="https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html"> Diffusion </a> and <a href="https://yang-song.github.io/blog/2021/score/"> score-based models </a> <d-cite key="sohl2015deep, song-arxiv-2020, ho2020denoising"></d-cite> have received a surge of recent interest <d-cite key="cai-eccv-2020, song-iclr-2021, hoogeboom2021argmax, vahdat2021score, kingma2021variational, austin2021structured"></d-cite>, resulting in several key advances in modeling continuous data. These models learn to reverse a sequential corruption process that iteratively adds small amounts of gaussian noise to data eventually converting it to random noise. Data generation in these models involves a sequence of refinement steps that gradually denoise random noise to produce samples from data distribution. While diffusion models have achieved great recent success in conditional generation tasks such as speech synthesis <d-cite key="chen-iclr-2021,chen-interspeech-2021,kong-arxiv-2020"></d-cite>, class-conditional ImageNet generation <d-cite key="dhariwal2021diffusion,ho-arxiv-2021"></d-cite>, image super-resolution <d-cite key="saharia-arxiv-2021"></d-cite> and many more, they have not been applied to a broader family of tasks, and it is not clear whether they can rival GANs in offering a versatile and general solution to the problem of image-to-image translation.
+</p>
+
+<p style="margin-bottom: 4%; margin-top: -2%">
+We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. We apply Palette on four challenging and diverse image-to-image translation tasks - <i> image colorization, inpainting, uncropping</i> and <i>JPEG artifact removal </i>. Palette achieves state of the art results in colorization while beating many strong prior task-specific GAN and Regression based methods on other tasks. Importantly, this is achieved without any task-specific customizations demonstrating a desirable degree of generality and flexibility. Furthermore, we show that a single generalist Palette model trained on multiple tasks simultaneously, performs as well or better than Palette models trained on individual tasks. 
+</p>
+
+
+
+<figure style="margin-top: 0">
+<figcaption style="margin-bottom: 0.5%;">
+  Palette results on image colorization. Given a grayscale (or black-and-white) image, Palette generates a colorized version of it. For more examples <a href="colorization.html">click here</a>.
+</figcaption>
+      <div style="overflow: hidden;"> 
+  <img src="colorization/17.jpg" style="display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="colorization/3.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+</figure>
+
+<figure style="margin-top: 0">
+<figcaption style="margin-bottom: 0.5%;">
+  Palette results on image inpainting. Given an image and arbitrary user-specified mask regions, Palette fills these masked regions with plausible detauls. For more examples <a href="inpainting.html">click here</a>.
+</figcaption>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/18.jpg" style="display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/19.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="inpainting/12.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+</figure>
+
+
+
+<figure style="margin-top: 0">
+<figcaption style="margin-bottom: 0.5%;">
+  Palette results on image uncropping (extrapolation). Given an image, Palette extends the image either along right/left/top/bottom or along all four directions. For more examples <a href="uncropping.html">click here</a>.
+</figcaption>
+      <div style="overflow: hidden;"> 
+  <img src="uncrop_top/7.jpg" style="display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+  <img src="uncrop_right/9.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden; display: block"> 
+  <img src="uncrop_bottom/15.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+</figure>
+
+
+<figure style="margin-top: 0">
+<figcaption style="margin-bottom: 0.5%;">
+  Palette results on JPEG artifact removal. Given an image compressed using JPEG, Palette removes the compression artifacts to produce a plausible original image. For more examples <a href="jpeg_decompression.html">click here</a>.
+</figcaption>
+      <div style="overflow: hidden;"> 
+  <img src="jpeg_decompression/0.jpg" style="display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="jpeg_decompression/5.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+      <div style="overflow: hidden;"> 
+  <img src="jpeg_decompression/8.jpg" style="margin-top: -2.5%; display:block;">
+      </div>
+</figure>
+
+<!-- <figcaption style="margin: .5% 0 10% 0"> -->
+
+ <!--      <h2>Paper and Citation</h2> -->
+ <!--      <p> -->
+ <!--      Details about our method, and more samples can be found in our <a href="">paper</a>.  -->
+ <!--      <\!-- <code>@article{saharia2021image,<br>&nbsp; title={Image super-resolution via iterative refinement},<br>&nbsp; author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad}, <br>&nbsp; journal={arXiv preprint arXiv:2104.07636}, <br>&nbsp; year={2021}<br>}<br></code> -->
+ <!-- -\-> -->
+ <!--      </p> -->
+
+
+  </d-article>
+
+<d-appendix>
+      <d-bibliography src="https://raw.githubusercontent.com/iterative-refinement/iterative-refinement.github.io/master/bibliography.bib"></d-bibliography>
+</d-appendix>
+
 
 
 </body>

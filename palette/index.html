@@ -255,8 +255,10 @@ ul.authors.affiliations li {
    <h1>
     Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "https://arxiv.org/pdf/2111.05826.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
    </h1>
-   <!-- <p style="text-align: center"> Denoising diffusion models for image-to-image translation. </p> -->
-   <!-- <p style="text-align: center">  </p> -->
+   <p style="text-align: center;">
+    A generalist conditional diffusion model that beats strong task-specific GAN based baselines on several image-to-image translation tasks without any task-specific customizations.
+   </p>
+
   </div>
   <div class="n-byline">
    <div class="byline">
@@ -296,44 +298,60 @@ ul.authors.affiliations li {
   <d-article>
 
 <!-- <h2>Summary</h2> -->
-<p style="margin-bottom: 4%; margin-top: -2%">
-<b>Abstract:</b> We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. On four challenging image-to-image translation tasks (colorization, uncropping, JPEG decompression, and inpainting), Palette outperforms strong GAN and regression baselines, and establishes a new state of the art. This is accomplished without task-specific hyper-parameter tuning, architecture customization, or any auxiliary loss demonstrating a desirable degree of generality and flexibility.
-<!-- We uncover the impact of using L2 vs. L1 loss in the denoising diffusion objective on sample diversity, and demonstrate the importance of self-attention through empirical architecture studies. Importantly, we advocate a unified evaluation protocol based on ImageNet, and report several sample quality scores including FID, Inception Score, Classification Accuracy of a pre-trained ResNet-50, and Perceptual Distance against reference images for various baselines. We expect this standardized evaluation protocol to play a critical role in advancing image-to-image translation research. -->
-Importantly, we show that a single generalist Palette model trained on 3 tasks (colorization, inpainting, JPEG decompression) performs as well or better than task-specific specialist counterparts.
-    <!-- <figure> -->
-    <!--     <img src="images/main_image.png"/> -->
-    <!--     <figcaption >Performance of Palette on Colorization, Inpainting, Uncropping and JPEG Decompression.</figcaption> -->
-    <!-- </figure> -->
-</p>
 
 <figure style="margin-top: 0">
       <div style="overflow: hidden;"> 
-	<img class="preload" src="infinite/2.gif" style="display:inline-block; width: 24%"> 
-	<img class="preload" src="infinite/3.gif" style="display:inline-block; width: 24%"> 
-	<img class="preload" src="infinite/4.gif" style="display:inline-block; width: 24%"> 
-	<img class="preload" src="infinite/6.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/2.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/3.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/4.gif" style="display:inline-block; width: 24%"> 
+  <img class="preload" src="infinite/6.gif" style="display:inline-block; width: 24%"> 
       </div>
 <figcaption style="margin-top: 0; margin-bottom: 0">
-  Palette results on infinite zoom out. The most zoomed-in frame is the original image. We then repeatedly apply Palette for uncropping along all 4 sides to generate infinite zoom out effect. For more examples <a href="zooming.html">click here</a>
+  Palette results on infinite zoom out. The most zoomed-in frame is the original image. We then repeatedly apply Palette for uncropping along all 4 sides to generate infinite zoom out effect. **Comment on Robustness** For more examples <a href="zooming.html">click here</a>
 </figcaption>
 </figure>
+
 
 <video autoplay="" loop="" muted="" playsinline="" controls="" style="margin-bottom: 6%">
   <source src="videos/palette_movie.mp4" type="video/mp4">
 </video>
+
+<h2>Summary</h2>
+
+<p style="margin-bottom: 4%; margin-top: -2%">
+ Many computer vision problems can be formulated as image-to-image translation. Examples include restoration tasks like <a href="https://en.wikipedia.org/wiki/Super-resolution_imaging"> super-resolution </a>, <a href="https://www.reddit.com/r/Colorization/">colorization</a>, and <a href="https://en.wikipedia.org/wiki/Inpainting"> inpainting </a>. The difficulty in these problems arises because for a single input image, we can have multiple plausible output images e.g. for colorization, given a black-and-white image, there can be several possible colorized versions of it. 
+</p>
+<p style="margin-bottom: 4%; margin-top: -2%">
+ A natural approach to image-to-image translation is to learn the conditional distribution of output images given the input, using deep <a href="https://en.wikipedia.org/wiki/Generative_model"> generative models </a>. Generative Adversarial Networks (GANs) 
+ <d-cite key="goodfellow2014generative, radford2015unsupervised"></d-cite> 
+ have emerged as the model family of choice for many image-to-image translation tasks 
+ <d-cite key="isola-cvpr-2017"></d-cite>,
+  as they are capable of generating high fidelity outputs, are broadly applicable, and support efficient sampling. Nevertheless, GANs can be challenging to train <d-cite key="arjovsky-arxiv-2017, gulrajani2017improved"></d-cite>, and often drop modes in the output distribution <d-cite key="metz2016unrolled, ravuri2019classification"></d-cite>. Autoregressive Models <d-cite key="oord2016conditional, parmar2018image"></d-cite>, VAEs <d-cite key="Kingma2013, vahdat2021nvae"></d-cite>, and Normalizing Flows <d-cite key="dinh2016density, Kingma2018"></d-cite> have also seen success in specific applications, but arguably, have not established the same level of sample quality and generality as GANs. 
+</p>
+
+
+<p style="margin-bottom: 4%; margin-top: -2%">
+ <a href="https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html"> Diffusion </a> and <a href="https://yang-song.github.io/blog/2021/score/"> score-based models </a> <d-cite key="sohl2015deep, song-arxiv-2020, ho2020denoising"></d-cite> have received a surge of recent interest <d-cite key="cai-eccv-2020, song-iclr-2021, hoogeboom2021argmax, vahdat2021score, kingma2021variational, austin2021structured"></d-cite>, resulting in several key advances in modeling continuous data. These models learn to reverse a sequential corruption process that iteratively adds small amounts of gaussian noise to data eventually converting it to random noise. Data generation in these models involves a sequence of refinement steps that gradually denoise random noise to produce samples from data distribution. While diffusion models have achieved great recent success in conditional generation tasks such as speech synthesis <d-cite key="chen-iclr-2021,chen-interspeech-2021,kong-arxiv-2020"></d-cite>, class-conditional ImageNet generation <d-cite key="dhariwal2021diffusion,ho-arxiv-2021"></d-cite>, image super-resolution <d-cite key="saharia-arxiv-2021"></d-cite> and many more, they have not been applied to a broader family of tasks, and it is not clear whether they can rival GANs in offering a versatile and general solution to the problem of image-to-image translation.
+</p>
+
+<p style="margin-bottom: 4%; margin-top: -2%">
+We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. We apply Palette on four challenging and diverse image-to-image translation tasks - <i> image colorization, inpainting, uncropping</i> and <i>JPEG artifact removal </i>. Palette achieves state of the art results in colorization while beating many strong prior task-specific GAN and Regression based methods on other tasks. Importantly, this is achieved without any task-specific customizations demonstrating a desirable degree of generality and flexibility. Furthermore, we show that a single generalist Palette model trained on multiple tasks simultaneously, performs as well or better than Palette models trained on individual tasks. 
+</p>
+
+
 
 <figure style="margin-top: 0">
 <figcaption style="margin-bottom: 0.5%;">
   Palette results on image colorization. Given a grayscale (or black-and-white) image, Palette generates a colorized version of it. For more examples <a href="colorization.html">click here</a>.
 </figcaption>
       <div style="overflow: hidden;"> 
-	<img src="colorization/17.jpg" style="display:block;">
+  <img src="colorization/17.jpg" style="display:block;">
       </div>
       <div style="overflow: hidden;"> 
-	<img src="colorization/3.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="colorization/3.jpg" style="margin-top: -2.5%; display:block;">
       </div>
       <div style="overflow: hidden;"> 
-	<img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
       </div>
 </figure>
 
@@ -359,13 +377,13 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
   Palette results on image uncropping (extrapolation). Given an image, Palette extends the image either along right/left/top/bottom or along all four directions. For more examples <a href="uncropping.html">click here</a>.
 </figcaption>
       <div style="overflow: hidden;"> 
-	<img src="uncrop_top/7.jpg" style="display:block;">
+  <img src="uncrop_top/7.jpg" style="display:block;">
       </div>
       <div style="overflow: hidden; display: block"> 
-	<img src="uncrop_right/9.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="uncrop_right/9.jpg" style="margin-top: -2.5%; display:block;">
       </div>
       <div style="overflow: hidden; display: block"> 
-	<img src="uncrop_bottom/15.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="uncrop_bottom/15.jpg" style="margin-top: -2.5%; display:block;">
       </div>
 </figure>
 
@@ -375,13 +393,13 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
   Palette results on JPEG artifact removal. Given an image compressed using JPEG, Palette removes the compression artifacts to produce a plausible original image. For more examples <a href="jpeg_decompression.html">click here</a>.
 </figcaption>
       <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/0.jpg" style="display:block;">
+  <img src="jpeg_decompression/0.jpg" style="display:block;">
       </div>
       <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/5.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="jpeg_decompression/5.jpg" style="margin-top: -2.5%; display:block;">
       </div>
       <div style="overflow: hidden;"> 
-	<img src="jpeg_decompression/8.jpg" style="margin-top: -2.5%; display:block;">
+  <img src="jpeg_decompression/8.jpg" style="margin-top: -2.5%; display:block;">
       </div>
 </figure>
 
@@ -397,6 +415,9 @@ Importantly, we show that a single generalist Palette model trained on 3 tasks (
 
   </d-article>
 
+<d-appendix>
+      <d-bibliography src="https://raw.githubusercontent.com/iterative-refinement/iterative-refinement.github.io/master/bibliography.bib"></d-bibliography>
+</d-appendix>
 
 
 
