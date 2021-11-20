@@ -292,7 +292,6 @@ ul.authors.affiliations li {
 }
 
 
-
 </style>
 <head>
     <title>Palette: Image-to-Image Diffusion Models</title>
@@ -431,10 +430,10 @@ ul.authors.affiliations li {
   </video>
 
 <p style="margin-bottom: 4%; margin-top: -2%">
- Many computer vision problems can be formulated as image-to-image translation. Examples include restoration tasks like <a href="https://en.wikipedia.org/wiki/Super-resolution_imaging"> super-resolution </a>, <a href="https://www.reddit.com/r/Colorization/">colorization</a>, and <a href="https://en.wikipedia.org/wiki/Inpainting"> inpainting </a>. The difficulty in these problems arises because for a single input image, we can have multiple plausible output images e.g. for colorization, given a black-and-white image, there can be several possible colorized versions of it. 
+ Many computer vision problems can be formulated as image-to-image translation. Examples include restoration tasks like <a href="https://en.wikipedia.org/wiki/Super-resolution_imaging"> super-resolution</a>, <a href="https://www.reddit.com/r/Colorization/">colorization</a>, and <a href="https://en.wikipedia.org/wiki/Inpainting"> inpainting </a>. The difficulty in these problems arises because for a single input image, we can have multiple plausible output images e.g. for colorization, given a black-and-white image, there can be several possible colorized versions of it. 
 </p>
 <p style="margin-bottom: 4%; margin-top: -2%">
- A natural approach to image-to-image translation is to learn the conditional distribution of output images given the input, using deep <a href="https://en.wikipedia.org/wiki/Generative_model"> generative models </a>. Generative Adversarial Networks (GANs) 
+ A natural approach to image-to-image translation is to learn the conditional distribution of output images given the input, using deep <a href="https://en.wikipedia.org/wiki/Generative_model"> generative models</a>. Generative Adversarial Networks (GANs) 
  <d-cite key="goodfellow2014generative, radford2015unsupervised"></d-cite> 
  have emerged as the model family of choice for many image-to-image translation tasks 
  <d-cite key="isola-cvpr-2017"></d-cite>,
@@ -451,8 +450,7 @@ We introduce Palette, a simple and general framework for image-to-image translat
 </p>
 
 
-
-<figure style="margin-top: 0">
+  <figure style="margin-top: 0">
 <figcaption style="margin-bottom: 0.5%;">
   Palette results on image colorization. Given a grayscale (or black-and-white) image, Palette generates a colorized version of it. For more examples <a href="colorization.html">click here</a>.
 </figcaption>
@@ -553,6 +551,28 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";  
 }
+
+function openTask(taskName, elmnt) {
+  // Hide all elements with class="tabcontent" by default */
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Remove the background color of all tablinks/buttons
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  // Show the specific tab content
+  document.getElementById(taskName).style.display = "block";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
   </script>
 
 
