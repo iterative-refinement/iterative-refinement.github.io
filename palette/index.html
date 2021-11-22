@@ -291,6 +291,32 @@ ul.authors.affiliations li {
   to {opacity: 1}
 }
 
+/* Style tab links */
+.tablink {
+  background-color: #fff;
+  color: black;
+  float: left;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 5px;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+
+}
+
+.tablink:hover {
+  background-color: #36373A;
+  color: white;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
 
 </style>
 <head>
@@ -450,9 +476,20 @@ We introduce Palette, a simple and general framework for image-to-image translat
 </p>
 
 
-  <figure style="margin-top: 0">
-<figcaption style="margin-bottom: 0.5%;">
-  Palette results on image colorization. Given a grayscale (or black-and-white) image, Palette generates a colorized version of it. For more examples <a href="colorization.html">click here</a>.
+<div style="overflow: hidden; margin-bottom: -2%; text-align: center"> 
+<button class="tablink" onclick="openTask('Colorization', this)" id="defaultOpen" style="display:inline-block; width: 25%">Colorization</button>  
+<button class="tablink" onclick="openTask('Inpainting', this)" style="display:inline-block; width: 25%">Inpainting</button>
+<button class="tablink" onclick="openTask('Uncropping', this)" style="display:inline-block; width: 25%">Uncropping</button>
+<button class="tablink" onclick="openTask('JPEG-Restoration', this)" style="display:inline-block; width: 25%">JPEG Restoration</button>
+</div>
+
+
+
+
+<div id="Colorization" class="tabcontent">
+<figure style="margin-top: -9%">
+<!-- <figcaption style="margin-bottom: 0.5%;">
+  Palette results on image colorization. Given a grayscale (or black-and-white) image, Palette generates a colorized version of it. For more examples <a href="colorization.html">click here</a>. -->
 </figcaption>
       <div style="overflow: hidden;"> 
   <img src="colorization/17.jpg" style="display:block;">
@@ -464,11 +501,13 @@ We introduce Palette, a simple and general framework for image-to-image translat
   <img src="colorization/5.jpg" style="margin-top: -2.5%; display:block;">
       </div>
 </figure>
+</div>
 
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: 0.5%;">
+<div id="Inpainting" class="tabcontent">
+<figure style="margin-top: -9%">
+<!-- <figcaption style="margin-bottom: 0.5%;">
   Palette results on image inpainting. Given an image and arbitrary user-specified mask regions, Palette fills these masked regions with plausible detauls. For more examples <a href="inpainting.html">click here</a>.
-</figcaption>
+</figcaption> -->
       <div style="overflow: hidden;"> 
   <img src="inpainting/18.jpg" style="display:block;">
       </div>
@@ -479,13 +518,14 @@ We introduce Palette, a simple and general framework for image-to-image translat
   <img src="inpainting/12.jpg" style="margin-top: -2.5%; display:block;">
       </div>
 </figure>
+</div>
 
 
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: 0.5%;">
+<div id="Uncropping" class="tabcontent">
+<figure style="margin-top: -9%">
+<!-- <figcaption style="margin-bottom: 0.5%;">
   Palette results on image uncropping (extrapolation). Given an image, Palette extends the image either along right/left/top/bottom or along all four directions. For more examples <a href="uncropping.html">click here</a>.
-</figcaption>
+</figcaption> -->
       <div style="overflow: hidden;"> 
   <img src="uncrop_top/7.jpg" style="display:block;">
       </div>
@@ -496,12 +536,13 @@ We introduce Palette, a simple and general framework for image-to-image translat
   <img src="uncrop_bottom/15.jpg" style="margin-top: -2.5%; display:block;">
       </div>
 </figure>
+</div>
 
-
-<figure style="margin-top: 0">
-<figcaption style="margin-bottom: 0.5%;">
+<div id="JPEG-Restoration" class="tabcontent">
+<figure style="margin-top: -9%">
+<!-- <figcaption style="margin-bottom: 0.5%;">
   Palette results on JPEG artifact removal. Given an image compressed using JPEG, Palette removes the compression artifacts to produce a plausible original image. For more examples <a href="jpeg_decompression.html">click here</a>.
-</figcaption>
+</figcaption> -->
       <div style="overflow: hidden;"> 
   <img src="jpeg_decompression/0.jpg" style="display:block;">
       </div>
@@ -512,18 +553,8 @@ We introduce Palette, a simple and general framework for image-to-image translat
   <img src="jpeg_decompression/8.jpg" style="margin-top: -2.5%; display:block;">
       </div>
 </figure>
-
-<!-- <figcaption style="margin: .5% 0 10% 0"> -->
-
- <!--      <h2>Paper and Citation</h2> -->
- <!--      <p> -->
- <!--      Details about our method, and more samples can be found in our <a href="">paper</a>.  -->
- <!--      <\!-- <code>@article{saharia2021image,<br>&nbsp; title={Image super-resolution via iterative refinement},<br>&nbsp; author={Saharia, Chitwan and Ho, Jonathan and Chan, William and Salimans, Tim and Fleet, David J and Norouzi, Mohammad}, <br>&nbsp; journal={arXiv preprint arXiv:2104.07636}, <br>&nbsp; year={2021}<br>}<br></code> -->
- <!-- -\-> -->
- <!--      </p> -->
-
-
-  </d-article>
+</div>
+</d-article>
 
 <d-appendix>
       <d-bibliography src="https://raw.githubusercontent.com/iterative-refinement/iterative-refinement.github.io/master/bibliography.bib"></d-bibliography>
@@ -553,21 +584,19 @@ function showSlides(n) {
 }
 
 function openTask(taskName, elmnt) {
-  // Hide all elements with class="tabcontent" by default */
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-
-  // Remove the background color of all tablinks/buttons
   tablinks = document.getElementsByClassName("tablink");
   for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.color = "";
     tablinks[i].style.backgroundColor = "";
   }
-
-  // Show the specific tab content
   document.getElementById(taskName).style.display = "block";
+  elmnt.style.color = "white";
+  elmnt.style.backgroundColor = "#36373A";
 }
 
 // Get the element with id="defaultOpen" and click on it
