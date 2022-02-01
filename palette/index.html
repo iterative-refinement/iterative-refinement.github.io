@@ -26,6 +26,7 @@ pa.n-header,
     justify-items: stretch;
     grid-template-columns: [screen-start] 8px [page-start kicker-start text-start gutter-start middle-start] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 8px [screen-end];
     grid-column-gap: 8px;
+    border: 0;
 }
 
 .grid {
@@ -93,9 +94,6 @@ pa.n-header,
 
 /* default grid column assignments */
 .n-title > *  {
-
-
-
     grid-column: text;
 }
 
@@ -104,7 +102,7 @@ pa.n-header,
 }
 
 .n-title {
-    padding: 2.5rem 0 0.5rem;
+    padding: 2.5rem 0 0;
 }
 
 .l-page {
@@ -138,7 +136,7 @@ strong {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.1em;
-    margin: 0 0 0.5rem;
+    margin: 0 0 0;
     text-align: center;
 }
 
@@ -152,10 +150,10 @@ strong {
 .n-byline {
   contain: style;
   overflow: hidden;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
   font-size: 0.8rem;
   line-height: 1.8em;
-  padding: 1.5rem 0;
+  /* padding: 1.5rem 0; */
   min-height: 1.8em;
 }
 
@@ -195,10 +193,17 @@ strong {
 }
 
 ul.authors {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  contain: style;
+  overflow: hidden;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+  font-size: 0.8rem;
+  line-height: 1.8em;
+  padding: 1.5rem 0;
+  min-height: 1.8em;
 }
 ul.authors li {
     padding: 0 0.5rem;
@@ -223,9 +228,7 @@ ul.authors.affiliations li {
 
 /* Slideshow container */
 .panorama-slideshow {
-  max-width: 1000px;
   position: relative;
-  margin: auto;
 }
 
 /* Hide the images by default */
@@ -248,9 +251,9 @@ div[class^='image-gallery-slide-'] {
   padding: 16px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  font-size: 25px;
+  transition: 0.1s ease;
+  border-radius: 0 2px 2px 0;
   user-select: none;
 }
 
@@ -389,67 +392,45 @@ div[class^='image-gallery-slide-'] {
 </head>
 
 <body>
-  <div class="n-title">
+<div class="n-title">
 
-<figure style="margin-top: 0; grid-column: page;">
-
+<figure style="grid-column: page;"> 
 <div class="panorama-slideshow">
   <div class="panorama-slide fade">
-    <!-- <div class="numbertext">1 / 3</div> -->
-    <a href="panoramas/image16.png"><img src="panoramas/image16.png" style="display:block; margin-top: .5%; margin-left: auto; margin-right: auto"></a>
+    <a href="panoramas/image16.png"><img src="panoramas/image16.png" style="display:block; margin-top: .5%;"></a>
   </div>
-
   <div class="panorama-slide fade">
-    <!-- <div class="numbertext">2 / 3</div> -->
-    <a href="panoramas/image13.png"><img src="panoramas/image13.png" style="display:block; margin-top: .5%; margin-left: auto; margin-right: auto"></a>
+    <a href="panoramas/image13.png"><img src="panoramas/image13.png" style="display:block; margin-top: .5%;"></a>
   </div>
-
   <div class="panorama-slide fade">
-    <!-- <div class="numbertext">2 / 3</div> -->
-    <a href="panoramas/image1.png"><img src="panoramas/image1.png" style="display:block; margin-top: .5%; margin-left: auto; margin-right: auto"></a>
+    <a href="panoramas/image1.png"><img src="panoramas/image1.png" style="display:block; margin-top: .5%;"></a>
   </div>  
-
   <div class="panorama-slide fade">
-    <!-- <div class="numbertext">2 / 3</div> -->
-    <a href="panoramas/image3.png"><img src="panoramas/image3.png" style="display:block; margin-top: .5%; margin-left: auto; margin-right: auto"></a>
+    <a href="panoramas/image3.png"><img src="panoramas/image3.png" style="display:block; margin-top: .5%;"></a>
   </div>
-
   <div class="panorama-slide fade">
-    <!-- <div class="numbertext">2 / 3</div> -->
-    <a href="panoramas/image4.png"><img src="panoramas/image4.png" style="display:block; margin-top: .5%; margin-left: auto; margin-right: auto"></a>
+    <a href="panoramas/image4.png"><img src="panoramas/image4.png" style="display:block; margin-top: .5%;"></a>
   </div>
-
   <div class="panorama-slide fade">
-    <!-- <div class="numbertext">2 / 3</div> -->
-    <a href="panoramas/image5.png"><img src="panoramas/image5.png" style="display:block; margin-top: .5%; margin-left: auto; margin-right: auto"></a>
+    <a href="panoramas/image5.png"><img src="panoramas/image5.png" style="display:block; margin-top: .5%;"></a>
   </div>
-
   <div class="panorama-slide fade">
-    <!-- <div class="numbertext">2 / 3</div> -->
-    <a href="panoramas/image6.png"><img src="panoramas/image6.png" style="display:block; margin-top: .5%; margin-left: auto; margin-right: auto"></a>
+    <a href="panoramas/image6.png"><img src="panoramas/image6.png" style="display:block; margin-top: .5%;"></a>
   </div>
   <a class="prev" onclick="plusPanoramaSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusPanoramaSlides(1)">&#10095;</a>
+</div>
 
-  </div>
-<br>
-
-<figcaption style="margin-top: -0.8%; margin-bottom: 0;">
-  Palette results on panorama generation. The middle 256x256 image is the original image. The model is repeatedly applied to 50% right uncropping and 50% left uncropping (4 times each) to obtain the final 256x1280 image. For more examples <a href="panorama.html"> click here</a>. These examples show that <i>Palette is surprisingly robust</i>, generating realistic and coherent outputs even after 8 repeated applications of uncrop.
+<figcaption style="margin-top: .5%; margin-bottom: 0; text-align: center;">
+  Given the middle 256x256 image, we repeatedly perform 50% right and 50% left uncropping (4 times each) to generate the final 256x1280 panorama. <a href="panorama.html">More examples</a>.
+  <!--These examples show that <i>Palette is surprisingly robust</i>, generating realistic and coherent outputs even after 8 repeated applications of uncrop.-->
 </figcaption>
 </figure>
 
    <h1>
     Palette: Image-to-Image Diffusion Models&nbsp; <span style="font-size: 22px"><a href = "https://arxiv.org/pdf/2111.05826.pdf" style="text-decoration:none; color: inherit;"><b>[PDF]</b></a></span>
    </h1>
-   <p style="text-align: center;">
-    We present Palette, a generalist conditional diffusion model for image-to-image translation. Palette beats strong task-specific GAN based baselines on several image-to-image translation tasks without any task-specific customizations.
-   </p>
 
-  </div>
-
-
-  <div class="n-byline">
    <div class="byline">
     <ul class="authors">
      <li>
@@ -477,31 +458,26 @@ div[class^='image-gallery-slide-'] {
       <a href = "https://norouzi.github.io/" style="text-decoration:none; color: inherit;">Mohammad Norouzi</a>
      </li>
     </ul>
-    <ul class="authors affiliations">
+    <!--<ul class="authors affiliations">
      <li>
       <a href = "https://research.google/" style="text-decoration:none; color: inherit;">Google Research</a>
      </li>
-    </ul>
+    </ul>-->
    </div>
-  </div>
-  <d-article>
 
+   <p>
+    We've developed a simple and general framework for image-to-image translation called Palette.
+    We've evaluated Palette on four challenging computer vision tasks, namely colorization, inpainting, uncropping, and JPEG restoration. 
+    Palette is able outperform strong task-specific GANs without any task-specific customization or hyper-parameter tuning.
+   </p>
 
-<figure style="margin-top: -5%; text-align: center"> 
-  <div style="overflow: hidden;"> 
-  <img class="preload" src="infinite/2.gif" style="display:inline-block; width: 24%"> 
-  <img class="preload" src="infinite/3.gif" style="display:inline-block; width: 24%"> 
-  <img class="preload" src="infinite/4.gif" style="display:inline-block; width: 24%"> 
-  <img class="preload" src="infinite/6.gif" style="display:inline-block; width: 24%"> 
-      </div>
-<figcaption style="margin-top: 0; margin-bottom: 0;"> 
-  Palette results on infinite zoom out. The most zoomed-in frame is the original image. We then repeatedly apply Palette for uncropping along all 4 sides to generate infinite zoom out effect. For more examples <a href="zooming.html">click here</a>.
-</figcaption>
-</figure>
-
-  <video autoplay="" loop="" muted="" playsinline="" controls="" style="margin-bottom: 6%;" >
-  <source src="videos/palette_movie.mp4" type="video/mp4">
+  <video autoplay="" loop="" muted="" playsinline="" controls="" style="margin-top: 1%; margin-bottom: 1%">
+  <source src="videos/palette_movie_v2.m4v" type="video/mp4">
   </video>
+</div>
+
+
+<d-article>
 
 <p style="margin-bottom: 4%; margin-top: -2%">
  Many computer vision problems can be formulated as image-to-image translation. Examples include restoration tasks like <a href="https://en.wikipedia.org/wiki/Super-resolution_imaging"> super-resolution</a>, <a href="https://www.reddit.com/r/Colorization/">colorization</a>, and <a href="https://en.wikipedia.org/wiki/Inpainting"> inpainting </a>. The difficulty in these problems arises because for a single input image, we can have multiple plausible output images e.g. for colorization, given a black-and-white image, there can be several possible colorized versions of it. 
@@ -523,6 +499,15 @@ div[class^='image-gallery-slide-'] {
 We introduce Palette, a simple and general framework for image-to-image translation using conditional diffusion models. We apply Palette on four challenging and diverse image-to-image translation tasks - <i> image colorization, inpainting, uncropping</i> and <i>JPEG artifact removal </i>. Palette achieves state of the art results in colorization while beating many strong prior task-specific GAN and Regression based methods on other tasks. Importantly, this is achieved without any task-specific customizations demonstrating a desirable degree of generality and flexibility. Furthermore, we show that a single generalist Palette model trained on multiple tasks simultaneously, performs as well or better than Palette models trained on individual tasks. 
 </p>
 
+<figure> 
+  <img class="preload" src="infinite/2.gif" style="display:inline-block; width: 24.5%"> 
+  <img class="preload" src="infinite/3.gif" style="display:inline-block; width: 24.5%"> 
+  <img class="preload" src="infinite/4.gif" style="display:inline-block; width: 24.5%"> 
+  <img class="preload" src="infinite/6.gif" style="display:inline-block; width: 24.5%"> 
+<figcaption style="margin-top: 0; margin-bottom: 0;"> 
+  Palette results on repeated zoom out. The most zoomed-in frame is the original image. We repeatedly perform uncropping along all 4 sides to generate the zoom out effect. <a href="zooming.html">More examples</a>.
+</figcaption>
+</figure>
 
 <div style="overflow: hidden; margin-bottom: -2%; text-align: center"> 
 <button class="tablink" onclick="openTask('Colorization', this)" id="defaultOpen" style="display:inline-block; width: 25%">Colorization</button>  
